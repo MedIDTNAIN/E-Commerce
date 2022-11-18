@@ -22,5 +22,5 @@ public interface IDao<T> {
     T findById(int id);
 
     List<T> findAll();
-
+//
 }

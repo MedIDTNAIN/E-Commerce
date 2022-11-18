@@ -43,10 +43,4 @@ public class Client extends User {
         this.commande = commande;
     }
 
-   
-
-   
-
-    
-
 }

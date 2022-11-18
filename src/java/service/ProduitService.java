@@ -6,6 +6,8 @@
 package service;
 
 import dao.IDao;
+import entities.Categorie;
+import entities.Marque;
 import entities.Produit;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -114,5 +116,42 @@ public class ProduitService implements IDao<Produit> {
         }
         return produits;
     }
-
+    
+    public List<Produit> findByMarque(Marque m) {
+        List<Produit> produits = null;
+        Session session = null;
+        Transaction tx = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            produits = session.getNamedQuery("findByMarque").setParameter("m", m).list();
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
+        return produits;
+    }
+    
+    public List<Produit> findByCategorie(Categorie c) {
+        List<Produit> produits = null;
+        Session session = null;
+        Transaction tx = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            produits = session.getNamedQuery("findByCategorie").setParameter("c", c).list();
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
+        return produits;
+    }
 }

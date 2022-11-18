@@ -57,6 +57,7 @@ public class MarqueService implements IDao<Marque> {
         return false;
     }
 
+   
     @Override
     public boolean delete(Marque o) {
         Session session = null;

@@ -13,11 +13,13 @@ import javax.persistence.Embeddable;
  * @author Lachgar
  */
 @Embeddable
-public class LigneCommandePK implements Serializable{
+public class LigneCommandePK implements Serializable {
+
     private int produitId;
     private int commandeId;
 
     public LigneCommandePK() {
+
     }
 
     public int getProduitId() {
@@ -35,7 +37,5 @@ public class LigneCommandePK implements Serializable{
     public void setCommandeId(int commandeId) {
         this.commandeId = commandeId;
     }
-    
-    
-    
+
 }

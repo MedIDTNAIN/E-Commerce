@@ -25,19 +25,19 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "commande")
-public class Commande implements Serializable{
-    
+public class Commande implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Temporal(TemporalType.DATE)
     private Date date;
     @ManyToOne(targetEntity = Client.class)
-    private Client client ;
+    private Client client;
     @ManyToOne
-    private Facture facture ;
-    @OneToMany(mappedBy = "commande" ,fetch = FetchType.EAGER)
-    private List<LigneCommande> ligneCommande ;
+    private Facture facture;
+    @OneToMany(mappedBy = "commande", fetch = FetchType.EAGER)
+    private List<LigneCommande> ligneCommande;
 
     public Commande() {
     }
@@ -57,7 +57,5 @@ public class Commande implements Serializable{
     public void setDate(Date date) {
         this.date = date;
     }
-    
-    
-    
+
 }

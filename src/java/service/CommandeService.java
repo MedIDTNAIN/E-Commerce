@@ -112,6 +112,7 @@ public class CommandeService implements IDao<Commande> {
         } finally {
             session.close();
         }
+
         return commandes;
     }
 

@@ -82,6 +82,7 @@ public class CategorieService implements IDao<Categorie> {
         Session session = null;
         Transaction tx = null;
         try {
+
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
             session.delete(o);

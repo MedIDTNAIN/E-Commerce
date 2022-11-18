@@ -9,13 +9,16 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author Lachgar
  */
 @Entity
+@Table(name = "ligneCommande")
 public class LigneCommande {
+
     @EmbeddedId
     private LigneCommandePK commandePK;
     private double prixVente;
@@ -69,6 +72,5 @@ public class LigneCommande {
     public void setCommande(Commande commande) {
         this.commande = commande;
     }
-    
-    
+
 }

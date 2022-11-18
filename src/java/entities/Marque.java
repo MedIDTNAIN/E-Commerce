@@ -29,12 +29,12 @@ public class Marque {
     public Marque() {
     }
 
-    public Marque(String nom, List<Produit> produits) {
+    public Marque(String nom) {
         this.nom = nom;
         this.produits = produits;
     }
 
-    public Marque(int id, String nom, List<Produit> produits) {
+    public Marque(int id, String nom) {
         this.id = id;
         this.nom = nom;
         this.produits = produits;
@@ -63,7 +63,5 @@ public class Marque {
     public void setProduits(List<Produit> produits) {
         this.produits = produits;
     }
-    
-    
 
 }

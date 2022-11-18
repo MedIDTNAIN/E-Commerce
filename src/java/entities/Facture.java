@@ -21,14 +21,14 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "facture")
 public class Facture {
-    
+
     @Id
-    private int id ;
+    private int id;
     @Temporal(TemporalType.DATE)
     private Date date;
-    private double montant ;
+    private double montant;
     @OneToMany
-    private List<Commande> commande ;
+    private List<Commande> commande;
 
     public Facture() {
     }
@@ -77,10 +77,5 @@ public class Facture {
     public void setCommande(Commande commande) {
         this.commande = (List<Commande>) commande;
     }
-    
-    
-    
-    
-    
-    
+
 }

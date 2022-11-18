@@ -23,19 +23,20 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "categorie")
 public class Categorie {
+
     @Id
     private int id;
     private String nom;
     @OneToMany
-    private List<Produit> produits ;
-    
+    private List<Produit> produits;
+
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "categorieMere", cascade = CascadeType.ALL)
     private Set<Categorie> categories;
 
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")
     private Categorie categorieMere;
-    
+
     public Categorie() {
     }
 

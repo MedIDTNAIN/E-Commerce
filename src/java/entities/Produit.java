@@ -12,13 +12,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author Lachgar
  */
 @Entity
+@Table(name = "produit")
+@NamedQueries({
+    @NamedQuery(name = "findByMarque", query = "select p from Produit p where p.marque like :m "),
+    @NamedQuery(name = "findByCategorie", query = "select p from Produit p where p.categorie like :c ")
+})
 public class Produit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,16 +47,31 @@ public class Produit {
     public Produit() {
     }
 
-    public Produit(int id, String nom, String designation, double prix, int unite, String description, Marque marque) {
+    public Produit(int id, String nom, String designation, double prix, String image, int unite, String description, Marque marque) {
         this.id = id;
         this.nom = nom;
         this.designation = designation;
         this.prix = prix;
+        this.image = image;
         this.unite = unite;
         this.description = description;
         this.marque = marque;
     }
 
+    public Produit(String nom, String designation, double prix, String image, int unite, String description, Marque marque, Categorie categorie) {
+        this.nom = nom;
+        this.designation = designation;
+        this.prix = prix;
+        this.image = image;
+        this.unite = unite;
+        this.description = description;
+        this.lcs = lcs;
+        this.marque = marque;
+        this.categorie = categorie;
+    }
+
+    
+    
     public String getImage() {
         return image;
     }

@@ -17,6 +17,7 @@ import javax.persistence.Table;
 public class Admin extends User {
 
     public Admin() {
+        
     }
 
     public Admin(String nom, String prenom, String tele, String adresse, String email, String password, String role) {
