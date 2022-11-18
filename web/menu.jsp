@@ -4,11 +4,11 @@
         <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-                    <img src="Template/images/faces/face6.jpg" alt="profile">
+                    <img src="Template/images/faces/nabil3ndouface.jpg" alt="profile">
                     <span class="login-status online"></span> <!--change to offline or busy as needed-->              
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
-                    <span class="font-weight-bold mb-2">David Grey. H</span>
+                    <span class="font-weight-bold mb-2">Ouchlif Mohamed Nabil. H</span>
                     <span class="text-secondary text-small">Project Manager</span>
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
