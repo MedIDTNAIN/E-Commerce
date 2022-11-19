@@ -142,5 +142,23 @@ public class UserService implements IDao<User> {
         }
         return false;
     }
+    
+    public List<String> findProfils() {
+        List<String> roles = null;
+        Session session = null;
+        Transaction tx = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            roles  =  session.getNamedQuery("findProfils").list();
+            tx.commit();
+        } catch (HibernateException e) {
+            if(tx != null)
+                tx.rollback();
+        } finally {
+            session.close();
+        }
+        return roles;
+    }
 
 }

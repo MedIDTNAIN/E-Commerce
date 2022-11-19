@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.Table;
 
 /**
@@ -21,6 +22,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "user")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@NamedNativeQuery(name = "findProfils", query = "select distinct(DType) from User")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
