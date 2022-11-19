@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
+            
         }
     }
 
@@ -78,6 +78,7 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
           try {
             authenticate(request, response);
+            
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -127,7 +128,7 @@ public class LoginServlet extends HttpServlet {
         String password =request.getParameter("password");
         String newPass = Encrypt(password);
         if (us.validate(email, newPass.toString())) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);
         } else {
             //throw new Exception("Login not successful..");

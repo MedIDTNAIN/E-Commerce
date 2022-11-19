@@ -1,19 +1,3 @@
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Admin</title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="Template/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="Template/vendors/css/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="Template/css/style.css">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="Template/images/favicon.png" />
-</head>
-<body>
-<div class="container-scroller">
 <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo" href="Template/index.html"><img src="Template/images/logo.svg" alt="logo"/></a>
@@ -174,5 +158,3 @@
         </button>
     </div>
 </nav>
-</div>
-</body>
