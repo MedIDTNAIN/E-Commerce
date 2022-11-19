@@ -1,4 +1,19 @@
-
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Admin</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="Template/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="Template/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="Template/css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="Template/images/favicon.png" />
+</head>
+<body>
+<div class="container-scroller">
 <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo" href="Template/index.html"><img src="Template/images/logo.svg" alt="logo"/></a>
@@ -19,11 +34,11 @@
             <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                     <div class="nav-profile-img">
-                        <img src="Template/images/faces/face1.jpg" alt="image">
+                        <img src="Template/images/faces/nabil3ndouface.jpg" alt="image">
                         <span class="availability-status online"></span>             
                     </div>
                     <div class="nav-profile-text">
-                        <p class="mb-1 text-black">David Greymaax</p>
+                        <p class="mb-1 text-black">Ouchlif Mohamed Nabil</p>
                     </div>
                 </a>
                 <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -159,3 +174,5 @@
         </button>
     </div>
 </nav>
+</div>
+</body>
