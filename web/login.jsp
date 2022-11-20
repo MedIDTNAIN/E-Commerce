@@ -20,6 +20,9 @@
 
         <!-- Main css -->
         <link rel="stylesheet" href="css/style.css">
+        <style>
+
+        </style>
     </head>
     <body>
         <div class="main" >
@@ -40,7 +43,7 @@
                             <form method="post" action="LoginServlet"  class="register-form" id="login-form">
                                 <div class="form-group">
                                     <label for="email"><i class="zmdi zmdi-account material-icons-name"></i></label> <input type="text" name="email" id="username"
-                                        placeholder="Your Email" />
+                                                                                                                            placeholder="Your Email" />
                                 </div>
                                 <div class="form-group">
                                     <label for="password"><i class="zmdi zmdi-lock"></i></label> <input
@@ -52,6 +55,7 @@
                                            class="agree-term" /> <label for="remember-me"
                                            class="label-agree-term"><span><span></span></span>Remember me</label>
                                 </div>
+                                
                                 <div class="form-group form-button"><input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
                                 </div>
                             </form>

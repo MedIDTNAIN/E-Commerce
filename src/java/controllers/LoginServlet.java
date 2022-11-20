@@ -127,7 +127,7 @@ public class LoginServlet extends HttpServlet {
         String password =request.getParameter("password");
         String newPass = Encrypt(password);
         if (us.validate(email, newPass.toString())) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("index1.jsp");
             dispatcher.forward(request, response);
         } else {
             //throw new Exception("Login not successful..");
