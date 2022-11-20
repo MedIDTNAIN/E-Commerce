@@ -22,17 +22,17 @@ import util.HibernateUtil;
  */
 public class Test {
     public static void main(String[] args) {
-        //HibernateUtil.getSessionFactory().openSession();
-        MarqueService ms = new MarqueService();
-        CategorieService cs = new CategorieService();
-        ProduitService ps = new ProduitService();
+        HibernateUtil.getSessionFactory().openSession();
+        //MarqueService ms = new MarqueService();
+        //CategorieService cs = new CategorieService();
+        //ProduitService ps = new ProduitService();
         //cs.create(new Categorie("aiazhz"));
         //ms.create(new Marque("frfj"));
         //ps.create(new Produit("yugyj", "yuyuyu", 130, "image.jpg", 2, "hoi", ms.findById(1), cs.findById(1)));
         
-        for(Produit p : ps.findByCategorie(cs.findById(1))){
+        /*for(Produit p : ps.findByCategorie(cs.findById(1))){
             System.out.println(p);
-        }
+        }*/
     }
     
 }
