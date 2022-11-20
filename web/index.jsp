@@ -16,7 +16,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Purple Admin</title>
+        <title>Welcome home, Admin!</title>
         <!-- plugins:css -->
         <link rel="stylesheet" href="Template/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
         <link rel="stylesheet" href="Template/vendors/css/vendor.bundle.base.css">
@@ -79,7 +79,7 @@
                                             <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleTextarea1">Textarea</label>
+                                            <label for="exampleTextarea1">Address</label>
                                             <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
                                         </div>
                                         <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
@@ -121,7 +121,7 @@
                                         <tbody>
                                             <tr>
                                                 <td class="py-1">
-                                                    <img src="../../images/faces-clipart/pic-1.png" alt="image">
+                                                    <img src="Template/images/faces-clipart/pic-1.png" alt="image">
                                                 </td>
                                                 <td>
                                                     Herman Beck
@@ -140,7 +140,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="py-1">
-                                                    <img src="../../images/faces-clipart/pic-2.png" alt="image">
+                                                    <img src="Template/images/faces-clipart/pic-2.png" alt="image">
                                                 </td>
                                                 <td>
                                                     Messsy Adam
@@ -159,7 +159,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="py-1">
-                                                    <img src="../../images/faces-clipart/pic-3.png" alt="image">
+                                                    <img src="Template/images/faces-clipart/pic-3.png" alt="image">
                                                 </td>
                                                 <td>
                                                     John Richards
@@ -178,7 +178,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="py-1">
-                                                    <img src="../../images/faces-clipart/pic-4.png" alt="image">
+                                                    <img src="Template/images/faces-clipart/pic-4.png" alt="image">
                                                 </td>
                                                 <td>
                                                     Peter Meggik
@@ -197,7 +197,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="py-1">
-                                                    <img src="../../images/faces-clipart/pic-1.png" alt="image">
+                                                    <img src="Template/images/faces-clipart/pic-1.png" alt="image">
                                                 </td>
                                                 <td>
                                                     Edward
@@ -216,7 +216,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="py-1">
-                                                    <img src="../../images/faces-clipart/pic-2.png" alt="image">
+                                                    <img src="Template/images/faces-clipart/pic-2.png" alt="image">
                                                 </td>
                                                 <td>
                                                     John Doe
@@ -235,7 +235,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="py-1">
-                                                    <img src="../../images/faces-clipart/pic-3.png" alt="image">
+                                                    <img src="Template/images/faces-clipart/pic-3.png" alt="image">
                                                 </td>
                                                 <td>
                                                     Henry Tom

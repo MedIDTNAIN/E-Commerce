@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
+            
         }
     }
 
@@ -78,6 +78,7 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
           try {
             authenticate(request, response);
+            
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
