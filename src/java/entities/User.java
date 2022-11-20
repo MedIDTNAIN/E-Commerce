@@ -36,17 +36,31 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String nom, String prenom, String tele, String adresse, String email, String password, String role) {
+    public User(int id, String nom, String prenom, String email, String password) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.password = password;
+    }
+     public User( String nom, String prenom, String email, String password) {
+       
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(String nom, String prenom, String tele, String adresse, String email, String password) {
         this.nom = nom;
         this.prenom = prenom;
         this.tele = tele;
         this.adresse = adresse;
         this.email = email;
         this.password = password;
-        this.role = role;
     }
 
-    public User(int id, String nom, String prenom, String tele, String adresse, String email, String password, String role) {
+    public User(int id, String nom, String prenom, String tele, String adresse, String email, String password) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -54,7 +68,6 @@ public class User implements Serializable {
         this.adresse = adresse;
         this.email = email;
         this.password = password;
-        this.role = role;
     }
 
     public String getNom() {

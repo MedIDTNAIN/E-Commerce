@@ -25,13 +25,13 @@ public class Client extends User {
     public Client() {
     }
 
-    public Client(List<Commande> commande, String nom, String prenom, String tele, String adresse, String email, String password, String role) {
-        super(nom, prenom, tele, adresse, email, password, role);
+    public Client(List<Commande> commande, String nom, String prenom, String tele, String adresse, String email, String password) {
+        super(nom, prenom, tele, adresse, email, password);
         this.commande = commande;
     }
 
-    public Client(List<Commande> commande, int id, String nom, String prenom, String tele, String adresse, String email, String password, String role) {
-        super(id, nom, prenom, tele, adresse, email, password, role);
+    public Client(List<Commande> commande, int id, String nom, String prenom, String tele, String adresse, String email, String password) {
+        super(id, nom, prenom, tele, adresse, email, password);
         this.commande = commande;
     }
 
