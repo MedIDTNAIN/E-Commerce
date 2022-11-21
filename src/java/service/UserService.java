@@ -77,13 +77,13 @@ public class UserService implements IDao<User> {
 
     @Override
     public User findById(int id) {
-        User categorie = null;
+        User user = null;
         Session session = null;
         Transaction tx = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            categorie = (User) session.get(User.class, id);
+            user = (User) session.get(User.class, id);
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) {
@@ -92,7 +92,7 @@ public class UserService implements IDao<User> {
         } finally {
             session.close();
         }
-        return categorie;
+        return user;
     }
 
     @Override
@@ -159,6 +159,25 @@ public class UserService implements IDao<User> {
             session.close();
         }
         return roles;
+    }
+    
+    public User findByEmail(String email) {
+        User user = null;
+        Session session = null;
+        Transaction tx = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            user = (User) session.getNamedQuery("findByEmail").setParameter("u", email).uniqueResult();
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
+        return user;
     }
 
 }

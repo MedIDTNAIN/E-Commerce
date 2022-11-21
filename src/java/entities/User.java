@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.NamedNativeQueries;
 import javax.persistence.NamedNativeQuery;
 import javax.persistence.Table;
 
@@ -22,7 +23,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "user")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@NamedNativeQuery(name = "findProfils", query = "select distinct(DType) from User")
+@NamedNativeQueries({
+    @NamedNativeQuery(name = "findProfils", query = "select distinct(DType) from User"),
+    @NamedNativeQuery(name = "findByEmail", query = "select u from User u where u.email like :u")
+})
+
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;

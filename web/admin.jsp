@@ -30,7 +30,7 @@ and open the template in the editor.
         <div class="dashboard-main-wrapper">
             <div class="dashboard-header">
                 <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                    <a class="navbar-brand" href="index.html">E-Commerce <i class="fa fa-fw fa-shopping-cart"></i></a>
+                    <a class="navbar-brand" href="admin.jsp">E-Commerce <i class="fa fa-fw fa-shopping-cart"></i></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -121,7 +121,7 @@ and open the template in the editor.
                                 </ul>
                             </li>
                             <li class="nav-item dropdown nav-user">
-                                <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                                <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/avatar-nabil.jpg" alt="" class="user-avatar-md rounded-circle"></a>
                                 <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                     <div class="nav-user-info">
                                         <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
@@ -157,7 +157,7 @@ and open the template in the editor.
                                                 <div id="submenu-1-2" class="collapse submenu" style="">
                                                     <ul class="nav flex-column">
                                                         <li class="nav-item">
-                                                            <a class="nav-link" href="ecommerce-product-single.html">Gestion des produits</a>
+                                                            <a class="nav-link" href="gestionProduits.jsp">Gestion des produits</a>
                                                         </li>
                                                         <li class="nav-item">
                                                             <a class="nav-link" href="ecommerce-product.html">Liste des produits</a>
@@ -201,7 +201,7 @@ and open the template in the editor.
             </div>
             <div class="dashboard-wrapper">
                 <div class="dashboard-ecommerce">
-                    <div class="container-fluid dashboard-content ">
+                    <div class="container-fluid dashboard-content">
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="page-header">
