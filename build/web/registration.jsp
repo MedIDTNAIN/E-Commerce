@@ -32,9 +32,22 @@
                             <form method="post" action="RegistServlet" class="register-form"
                                   id="register-form">
                                 <div class="form-group">
+                                    <label for="name"></label>
+                                    <table border="0">
+                                        <tr>
+                                            <td>Type d'utilisateurs :</td>
+                                            
+                                            <td>Admin<input id="etd" type="radio" name="type" value="Admin" checked="checked" onclick="showAdmin();"/>
+                                                Client <input id="prof" type="radio" name="type" value="Client" checked="checked" onclick="showClient();"/></td>
+                                        </tr>
+                                       
+                                    </table>
+
+                                </div>
+                                <div class="form-group">
                                     <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label> <input type="text" name="fname" id="fname" placeholder="First Name" required=""/>
                                 </div>
-                                          <div class="form-group">
+                                <div class="form-group">
                                     <label for="name">
                                         <i class="zmdi zmdi-account material-icons-name"></i></label> <input type="text" name="lname" id="lname" placeholder="Last Name" required=""/>
                                 </div>
@@ -44,18 +57,17 @@
                                 <div class="form-group">
                                     <label for="pass"><i class="zmdi zmdi-lock"></i></label> <input type="password" name="pass" id="pass" placeholder="Password" required=""/>
                                 </div>
-                                 <div class="form-group">
-                                    <label for="contact"><i class="zmdi zmdi-phone "></i></label><input type="text" name="tele" id="contact" placeholder="Telephone" required=""/>
+                                <div class="form-group">
+                                    <label for="contact"><i class="zmdi zmdi-phone "></i></label><input type="text" name="tele" id="contact" placeholder="Telephone" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="adresse"><i class="zmdi zmdi-lock-outline"></i></label><input type="text" name="adresse" id="adresse" placeholder="Adresse" required=""/>
+                                    <label for="adresse"><i class="zmdi zmdi-lock-outline"></i></label><input type="text" name="adresse" id="adresse" placeholder="Adresse" />
                                 </div>
-                                 <div class="form-group">
-                                   <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" /> <label for="agree-term" class="label-agree-term"><span><span></span></span>I
+                                <div class="form-group">
+                                    <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" /> <label for="agree-term" class="label-agree-term"><span><span></span></span>I
                                         agree all statements in <a href="#" class="term-service">Terms of service</a></label>
                                 </div>
-                                <div class="form-group form-button">
-                                    <input type="submit" name="signup" id="signup"
+                                <div class="form-group form-button"> <input type="submit" name="signup" id="signup"
                                            class="form-submit" value="Register" />
                                 </div>
                             </form>
@@ -75,7 +87,7 @@
         <!-- JS -->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="js/main.js"></script>
-
+        <script src="js/roleUser.js" type="text/javascript"></script>
 
 
     </body>
