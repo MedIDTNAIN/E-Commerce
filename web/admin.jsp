@@ -1,3 +1,10 @@
+<%-- 
+    Document   : admin
+    Created on : 21 nov. 2022, 21:53:13
+    Author     : Mohamed Nabil
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
