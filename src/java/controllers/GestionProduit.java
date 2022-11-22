@@ -8,6 +8,7 @@ package controllers;
 import entities.Produit;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +22,9 @@ import service.ProduitService;
  */
 @WebServlet(name = "GestionProduit", urlPatterns = {"/GestionProduit"})
 public class GestionProduit extends HttpServlet {
+
     ProduitService ps = new ProduitService();
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,9 +37,8 @@ public class GestionProduit extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-      
-        }
+                response.sendRedirect("gestionProduits.jsp");
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -66,13 +68,14 @@ public class GestionProduit extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+                
         String nom = request.getParameter("productName");
         double prix = Double.parseDouble(request.getParameter("prix"));
         String description = request.getParameter("description");
         String designation = request.getParameter("designation");
         int unite = Integer.parseInt(request.getParameter("unite"));
-        
-        ps.create(new Produit(nom, designation, prix, null, unite, description, null, null));
+
+        ps.create(new Produit(nom, designation, prix, nom, unite, description, null, null));
         
     }
 

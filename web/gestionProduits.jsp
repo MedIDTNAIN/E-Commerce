@@ -220,8 +220,7 @@
                                 <div class="card">
                                     <h5 class="card-header">Ajouter un produit</h5>
                                     <div class="card-body">
-                                        <form action="#" id="basicform" data-parsley-validate="" onsubmit="saveProduct(this);
-                                            return false" class="productForm" method="post" action="GestionProduit">
+                                        <form method="post" action="GestionProduit">
                                             <div id="SuccessMessage"></div>
 
                                             <div class="wrapper">
