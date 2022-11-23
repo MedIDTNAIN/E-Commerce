@@ -4,6 +4,10 @@
     Author     : MOHAMED
 --%>
 
+<%@page import="entities.Categorie"%>
+<%@page import="service.CategorieService"%>
+<%@page import="entities.Marque"%>
+<%@page import="service.MarqueService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <<!DOCTYPE html>
@@ -252,11 +256,23 @@
                                                     <div class="inputField">
                                                         <label for="marque">Marque de produit :</label><span class="required">           *</span>
                                                         <select name="marque" id="marque">
+                                                            <%
+                                                                MarqueService ms = new MarqueService();
+                                                                for (Marque m : ms.findAll()) {
+                                                            %>
+                                                            <option><%= m.getNom()%></option>
+                                                            <%}%>
                                                         </select>
                                                     </div>
                                                     <div class="inputField">
                                                         <label for="categorie">Catégorie de produit :</label><span class="required">           *</span>
                                                         <select name="categorie" id="categorie">
+                                                                <%
+                                                                CategorieService cs = new CategorieService();
+                                                                for (Categorie m : cs.findAll()) {
+                                                            %>
+                                                            <option><%= m.getNom()%></option>
+                                                            <%}%>
                                                         </select>
                                                     </div>
                                                 </div>
