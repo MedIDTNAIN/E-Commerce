@@ -1,32 +1,26 @@
 <%-- 
-    Document   : gestionProduits
-    Created on : Nov 20, 2022, 11:15:56 PM
-    Author     : MOHAMED
+    Document   : listeProduits
+    Created on : 23 nov. 2022, 19:26:04
+    Author     : Mohamed Nabil
 --%>
 
-<%@page import="entities.Categorie"%>
-<%@page import="service.CategorieService"%>
-<%@page import="entities.Marque"%>
-<%@page import="service.MarqueService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<<!DOCTYPE html>
 <html lang="fr">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Welcome home, Admin!</title>
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/libs/css/style.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
-    <link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <title>Product</title>
-
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+        <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/libs/css/style.css">
+        <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+        <link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
+        <link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
+        <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+        <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
+        <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+        <title>Liste des produits!</title>
+    </head>
     <body>
         <div class="dashboard-main-wrapper">
             <div class="dashboard-header">
@@ -206,13 +200,13 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="page-header">
-                                    <h2 class="pageheader-title">Gestion des produits </h2>
+                                    <h2 class="pageheader-title">Liste des produits </h2>
                                     <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                                     <div class="page-breadcrumb">
                                         <nav aria-label="breadcrumb">
                                             <ol class="breadcrumb">
                                                 <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">E-commerce</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Gestion des produits</li>
+                                                <li class="breadcrumb-item active" aria-current="page">Liste des produits</li>
                                             </ol>
                                         </nav>
                                     </div>
@@ -220,71 +214,73 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                                <div class="card">
-                                    <h5 class="card-header">Ajouter un produit</h5>
-                                    <div class="card-body">
-                                        <form method="post" action="GestionProduit">
-                                            <div id="SuccessMessage"></div>
-
-                                            <div class="wrapper">
-
-                                                <div class="inputs">
-
-                                                    <!-- Product name -->
-                                                    <div class="inputField">
-                                                        <label for="productName">Nom :</label><span class="required">           *</span>
-                                                        <input name="productName" type="text" id="productName" name="name" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
-                                                    </div>
-                                                    <div class="inputField">
-                                                        <label for="prix">Prix (DHs) :</label><span class="required">           *</span>
-                                                        <input name="prix" type="text" id="prix" name="prix" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
-                                                    </div>
-                                                    <div class="inputField">
-                                                        <label for="description">Description :</label><span class="required">           *</span>
-                                                        <input name="description" type="text"  id="description" name="description" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
-                                                    </div>
-                                                    <div class="inputField">
-                                                        <label for="designation">Désignation :</label><span class="required">           *</span>
-                                                        <input name="designation" type="text" id="designation" name="designation" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
-                                                    </div>
-                                                    <div class="inputField">
-                                                        <label for="unite">Quantité :</label><span class="required">           *</span>
-                                                        <input name="unite" type="text" id="unite" name="unite" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
-                                                    </div>
-
-                                                    <div class="inputField">
-                                                        <label for="marque">Marque de produit :</label><span class="required">           *</span>
-                                                        <select name="marque" id="marque">
-                                                            <%
-                                                                MarqueService ms = new MarqueService();
-                                                                for (Marque m : ms.findAll()) {
-                                                            %>
-                                                            <option><%= m.getNom()%></option>
-                                                            <%}%>
-                                                        </select>
-                                                    </div>
-                                                    <div class="inputField">
-                                                        <label for="categorie">Catégorie de produit :</label><span class="required">           *</span>
-                                                        <select name="categorie" id="categorie">
-                                                                <%
-                                                                CategorieService cs = new CategorieService();
-                                                                for (Categorie m : cs.findAll()) {
-                                                            %>
-                                                            <option><%= m.getNom()%></option>
-                                                            <%}%>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="btnForm">
-                                                    <input class="btn btn-space btn-primary" type="submit" value="Save">
-                                                </div>
+                                <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
+                                    <div class="card">
+                                        <h5 class="card-header">Produits :</h5>
+                                        <div class="card-body p-0">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead class="bg-light">
+                                                        <tr class="border-0">
+                                                            <th class="border-0">#</th>
+                                                            <th class="border-0">Image</th>
+                                                            <th class="border-0">Nom du produit</th>
+                                                            <th class="border-0">Id du produit</th>
+                                                            <th class="border-0">Quantité</th>
+                                                            <th class="border-0">Prix</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>
+                                                                <div class="m-r-10"><img src="assets/images/product-pic.png" alt="user" class="rounded" width="45"></div>
+                                                            </td>
+                                                            <td>T-Shirt Adidas </td>
+                                                            <td>id000001 </td>
+                                                            <td>20</td>
+                                                            <td>$80.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>
+                                                                <div class="m-r-10"><img src="assets/images/product-pic-2.jpg" alt="user" class="rounded" width="45"></div>
+                                                            </td>
+                                                            <td>Jacket Bleu </td>
+                                                            <td>id000002 </td>
+                                                            <td>12</td>
+                                                            <td>$180.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3</td>
+                                                            <td>
+                                                                <div class="m-r-10"><img src="assets/images/product-pic-3.jpg" alt="user" class="rounded" width="45"></div>
+                                                            </td>
+                                                            <td>Pantalon Gris </td>
+                                                            <td>id000003 </td>
+                                                            <td>23</td>
+                                                            <td>$820.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>4</td>
+                                                            <td>
+                                                                <div class="m-r-10"><img src="assets/images/product-pic-4.jpg" alt="user" class="rounded" width="45"></div>
+                                                            </td>
+                                                            <td>Chaussures Reebok </td>
+                                                            <td>id000004 </td>
+                                                            <td>34</td>
+                                                            <td>$340.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -301,7 +297,5 @@
         <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
         <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
         <script src="assets/libs/js/dashboard-ecommerce.js"></script>
-
     </body>
-
 </html>

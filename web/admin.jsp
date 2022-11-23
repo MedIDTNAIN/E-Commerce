@@ -160,7 +160,7 @@ and open the template in the editor.
                                                             <a class="nav-link" href="gestionProduits.jsp">Gestion des produits</a>
                                                         </li>
                                                         <li class="nav-item">
-                                                            <a class="nav-link" href="ecommerce-product.html">Liste des produits</a>
+                                                            <a class="nav-link" href="listeProduits.jsp">Liste des produits</a>
                                                         </li>
                                                     </ul>
                                                 </div>
