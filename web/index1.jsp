@@ -13,7 +13,8 @@
 
 %>
 
-
+  
+  </script>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -37,7 +38,7 @@
                                     <h6 class="price"><%= p.getPrix()%></h6>
                                     <h6 class="Category">Category= <%= p.getCategorie()%></h6>
                                     <div class="mt-3 d-flex justify-content-between">
-                                        <a href="#" class="btn btn-dark">Add to Cart</a>
+                                        <a href="add_to_cart" class="btn btn-dark">Add to Cart</a>
                                         <a href="#" class="btn btn-primary">Buy Now</a>
                                     </div>
 
