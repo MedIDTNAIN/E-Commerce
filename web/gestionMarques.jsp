@@ -1,29 +1,31 @@
 <%-- 
-    Document   : listeProduits
-    Created on : 23 nov. 2022, 19:26:04
+    Document   : gestionMarques
+    Created on : 24 nov. 2022, 18:14:42
     Author     : Mohamed Nabil
 --%>
 
-<%@page import="entities.Produit"%>
-<%@page import="service.ProduitService"%>
+<%@page import="entities.Categorie"%>
+<%@page import="service.CategorieService"%>
+<%@page import="entities.Marque"%>
 <%@page import="service.MarqueService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-        <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-        <link rel="stylesheet" href="assets/libs/css/style.css">
-        <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-        <link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
-        <link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
-        <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
-        <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
-        <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-        <title>Liste des produits!</title>
-    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/libs/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+    <title>Brand</title>
+
+
     <body>
         <div class="dashboard-main-wrapper">
             <div class="dashboard-header">
@@ -203,13 +205,13 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="page-header">
-                                    <h2 class="pageheader-title">Liste des produits </h2>
+                                    <h2 class="pageheader-title">Gestion des produits </h2>
                                     <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                                     <div class="page-breadcrumb">
                                         <nav aria-label="breadcrumb">
                                             <ol class="breadcrumb">
                                                 <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">E-commerce</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Liste des produits</li>
+                                                <li class="breadcrumb-item active" aria-current="page">Gestion des produits</li>
                                             </ol>
                                         </nav>
                                     </div>
@@ -217,41 +219,30 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                                 <div class="card">
-                                    <h5 class="card-header">Nos Produits :</h5>
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="bg-light">
-                                                    <tr class="border-0">
-                                                        <th class="border-0">#</th>
-                                                        <th class="border-0">Image</th>
-                                                        <th class="border-0">Nom du produit</th>
-                                                        <th class="border-0">Quantité</th>
-                                                        <th class="border-0">Prix</th>
-                                                    </tr>
-                                                </thead>
-                                                <% ProduitService ps = new ProduitService();
-                                                        for (Produit p : ps.findAll()) {%>
-                                                <tbody>
-                                                    <tr>
-                                                        <td><%= p.getId()%></td>
-                                                        <td>
-                                                            <div class="m-r-10"><img src="assets/images/product-pic.png" alt="user" class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td><%= p.getNom()%></td>
-                                                        <td><%= p.getUnite()%></td>
-                                                        <td><%= p.getPrix()%> $</td>
-                                                    </tr>
-                                                    <% }%>
-                                                    <tr>
-                                                        <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
-                                                    </tr>
-                                                    <% //for(Produit p : ps.findByMarque()) {%>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                    <h5 class="card-header">Ajouter une marque</h5>
+                                    <div class="card-body">
+                                        <form method="post" action="GestionProduits">
+                                            <div id="SuccessMessage"></div>
+
+                                            <div class="wrapper">
+
+                                                <div class="inputs">
+
+                                                    <!-- Product name -->
+                                                    <div class="inputField">
+                                                        <label for="brandName">Nom :</label><span class="required">           *</span>
+                                                        <input name="brandName" type="text" id="brandName" name="name" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
+                                                    </div>
+                                                    <div class="inputField">
+                                                        <label for="brandName"></label>
+                                                    </div>
+                                                    <div class="btnForm">
+                                                        <input class="btn btn-space btn-primary" type="submit" value="Save">
+                                                    </div>
+                                                </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -272,5 +263,7 @@
         <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
         <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
         <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+
     </body>
+
 </html>

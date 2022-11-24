@@ -170,10 +170,10 @@ and open the template in the editor.
                                                 <div id="submenu-1-1" class="collapse submenu" style="">
                                                     <ul class="nav flex-column">
                                                         <li class="nav-item">
-                                                            <a class="nav-link" href="ecommerce-product-single.html">Gestion des marques</a>
+                                                            <a class="nav-link" href="gestionMarques.jsp">Gestion des marques</a>
                                                         </li>
                                                         <li class="nav-item">
-                                                            <a class="nav-link" href="ecommerce-product.html">Liste des marques</a>
+                                                            <a class="nav-link" href="listeMarques.jsp">Liste des marques</a>
                                                         </li>
                                                     </ul>
                                                 </div>

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : listeProduits
-    Created on : 23 nov. 2022, 19:26:04
+    Document   : listeMarques
+    Created on : 24 nov. 2022, 18:42:17
     Author     : Mohamed Nabil
 --%>
 
@@ -22,7 +22,7 @@
         <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
         <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
         <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-        <title>Liste des produits!</title>
+        <title>Liste des Marques!</title>
     </head>
     <body>
         <div class="dashboard-main-wrapper">
@@ -248,7 +248,6 @@
                                                     <tr>
                                                         <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
                                                     </tr>
-                                                    <% //for(Produit p : ps.findByMarque()) {%>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -274,3 +273,4 @@
         <script src="assets/libs/js/dashboard-ecommerce.js"></script>
     </body>
 </html>
+
