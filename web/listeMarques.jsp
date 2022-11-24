@@ -4,6 +4,7 @@
     Author     : Mohamed Nabil
 --%>
 
+<%@page import="entities.Marque"%>
 <%@page import="entities.Produit"%>
 <%@page import="service.ProduitService"%>
 <%@page import="service.MarqueService"%>
@@ -203,13 +204,13 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="page-header">
-                                    <h2 class="pageheader-title">Liste des produits </h2>
+                                    <h2 class="pageheader-title">Liste des marques </h2>
                                     <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                                     <div class="page-breadcrumb">
                                         <nav aria-label="breadcrumb">
                                             <ol class="breadcrumb">
                                                 <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">E-commerce</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Liste des produits</li>
+                                                <li class="breadcrumb-item active" aria-current="page">Liste des marques</li>
                                             </ol>
                                         </nav>
                                     </div>
@@ -219,7 +220,7 @@
                         <div class="row">
                             <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
                                 <div class="card">
-                                    <h5 class="card-header">Nos Produits :</h5>
+                                    <h5 class="card-header">Nos Marques :</h5>
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
                                             <table class="table">
@@ -227,13 +228,11 @@
                                                     <tr class="border-0">
                                                         <th class="border-0">#</th>
                                                         <th class="border-0">Image</th>
-                                                        <th class="border-0">Nom du produit</th>
-                                                        <th class="border-0">Quantité</th>
-                                                        <th class="border-0">Prix</th>
+                                                        <th class="border-0">Nom de la marque</th>
                                                     </tr>
                                                 </thead>
-                                                <% ProduitService ps = new ProduitService();
-                                                        for (Produit p : ps.findAll()) {%>
+                                                <% MarqueService ps = new MarqueService();
+                                                    for (Marque p : ps.findAll()) {%>
                                                 <tbody>
                                                     <tr>
                                                         <td><%= p.getId()%></td>
@@ -241,8 +240,6 @@
                                                             <div class="m-r-10"><img src="assets/images/product-pic.png" alt="user" class="rounded" width="45"></div>
                                                         </td>
                                                         <td><%= p.getNom()%></td>
-                                                        <td><%= p.getUnite()%></td>
-                                                        <td><%= p.getPrix()%> $</td>
                                                     </tr>
                                                     <% }%>
                                                     <tr>
