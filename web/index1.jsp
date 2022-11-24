@@ -15,25 +15,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-        <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-        <link rel="stylesheet" href="assets/libs/css/style.css">
-        <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-        <link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
-        <link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
-        <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
-        <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
-        <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <head
+        
         <%@include file="/includes/head.jsp"%>
+        
         <title>Welcome back!</title>
     </head>
     <body>
         <%@include file="/includes/navbar.jsp"%>
         <div class="container">
+            <div class="card-header my-3"></div>
             <div class="card-header my-3"></div>
              <div class="card-header my-3">All Products</div>
             <div class="row">
@@ -46,6 +37,7 @@
                             <h5 class="card-title"><%= p.getNom()%></h5>
                             <h6 class="price"><%= p.getPrix()%></h6>
                             <h6 class="Category">Category= <%= p.getCategorie()%></h6>
+                            <h6 class="Category">Brand= <%= p.getMarque()%></h6>
                             <div class="mt-3 d-flex justify-content-between">
                                 <a href="add_to_cart" class="btn btn-dark">Add to Cart</a>
                                 <a href="#" class="btn btn-primary">Buy Now</a>
