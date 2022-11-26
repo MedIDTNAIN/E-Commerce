@@ -7,6 +7,7 @@ package service;
 
 import dao.IDao;
 import entities.Client;
+import entities.User;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -114,6 +115,12 @@ public class ClientService implements IDao<Client> {
         }
         return users;
     }
-    
+    public User getByEmail(String email) {
+        User c = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        c = (User) session.createQuery("from User where email = ?").setParameter(0, email).uniqueResult();
+        session.getTransaction().commit();
+        return c;
 
-}
+}}

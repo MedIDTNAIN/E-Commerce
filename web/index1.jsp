@@ -4,6 +4,8 @@
     Author     : LAASRI MOHAMED
 --%>
 
+<%@page import="entities.Client"%>
+<%@page import="entities.User"%>
 <%@page import="entities.Produit"%>
 <%@page import="java.util.List"%>
 <%@page import="service.ProduitService"%>
@@ -16,9 +18,20 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <%!Client c ;%>
+        <%
+         
+        HttpSession sessio = request.getSession();
+        if (sessio != null) {
+             c = (Client) sessio.getAttribute("email");
+        }
+        else{
+            response.sendRedirect("login.jsp");
+        }
+        %>
+        <title>Welcome Mr <%= c.getNom()%> </title>
         <%@include file="/includes/head.jsp"%>
-        
-        <title>Welcome back!</title>
+
     </head>
     <body>
         <%@include file="/includes/navbar.jsp"%>
