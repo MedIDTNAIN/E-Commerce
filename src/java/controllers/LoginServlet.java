@@ -5,17 +5,24 @@
  */
 package controllers;
 
+import entities.Admin;
+import entities.Client;
+import entities.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import javax.persistence.NamedNativeQuery;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import service.AdminService;
+import service.ClientService;
 import service.UserService;
 
 /**
@@ -25,7 +32,7 @@ import service.UserService;
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
 
-    private static final long serialVersionUID = 1L ;
+    private static final long serialVersionUID = 1L;
     UserService us = new UserService();
     private static final String ALGORITHM = "md5";
     private static final String DIGEST_STRING = "HG58YZ3CR9";
@@ -42,16 +49,62 @@ public class LoginServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+     public static String Encrypt(String password) {
+        try {
+
+            // Static getInstance method is called with hashing MD5
+            MessageDigest md = MessageDigest.getInstance("MD5");
+
+            // digest() method is called to calculate message digest
+            // of an password digest() return array of byte
+            byte[] messageDigest = md.digest(password.getBytes());
+
+            // Convert byte array into signum representation
+            BigInteger no = new BigInteger(1, messageDigest);
+
+            // Convert message digest into hex value
+            String hashtext = no.toString(16);
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+            return hashtext;
+        } // For specifying wrong message digest algorithms
+        catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            
-        }
-    }
+        String email = request.getParameter("email");
+        String passworde = request.getParameter("password");
+        
+        UserService cl = new UserService();
+        User c = cl.getByEmail(email);
+
+        if (c != null) {
+            if (c.getPassword().equals(Encrypt(passworde))) {
+                HttpSession session = request.getSession();
+                session.setAttribute("email", email);
+                c.setEtat(1);
+                cl.update(c);
+                response.sendRedirect("index1.jsp");
+            } else {
+                response.sendRedirect("login.jsp?msg=mot de passe incorrect");
+            }
+        } else {
+            response.sendRedirect("login.jsp?msg=Email introvable");
+
+//Source : www.exelib.net        }
+    }}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
+     * //Source : www.exelib.net }
+     *
+     * //
+     * <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+     * /**
      * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
@@ -62,7 +115,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            response.sendRedirect("login.jsp");
+        processRequest(request, response);
     }
 
     /**
@@ -76,13 +129,8 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          try {
-            authenticate(request, response);
-            
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+               processRequest(request, response);
+
 
     }
 
@@ -95,48 +143,9 @@ public class LoginServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-   public static String Encrypt(String password)
-    {
-        try {
- 
-            // Static getInstance method is called with hashing MD5
-            MessageDigest md = MessageDigest.getInstance("MD5");
- 
-            // digest() method is called to calculate message digest
-            // of an password digest() return array of byte
-            byte[] messageDigest = md.digest(password.getBytes());
- 
-            // Convert byte array into signum representation
-            BigInteger no = new BigInteger(1, messageDigest);
- 
-            // Convert message digest into hex value
-            String hashtext = no.toString(16);
-            while (hashtext.length() < 32) {
-                hashtext = "0" + hashtext;
-            }
-            return hashtext;
-        }
- 
-        // For specifying wrong message digest algorithms
-        catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-    }
-     private void authenticate(HttpServletRequest request, HttpServletResponse response)
-    throws Exception {
-        String email = request.getParameter("email");
-        String password =request.getParameter("password");
-        String newPass = Encrypt(password);
-        if (us.validate(email, newPass.toString())) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("index1.jsp");
-            dispatcher.forward(request, response);
-        } else {
-            //throw new Exception("Login not successful..");
-                        response.sendRedirect("login.jsp");
 
-        }
-    }
+   
+
     
 
-     }
-
+}

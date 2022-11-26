@@ -219,18 +219,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                                <div class="card">
-                                    <h5 class="card-header">Ajouter un produit</h5>
-                                    <div class="card-body">
-                                        <form method="post" action="GestionProduit">
+                        <form method="post" action="GestionProduit" enctype="multipart/form-data">
+
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                    <div class="card">
+                                        <h5 class="card-header">Ajouter un produit</h5>
+
+                                        <div class="card-body">
                                             <div id="SuccessMessage"></div>
 
                                             <div class="wrapper">
 
-                                                <div class="inputs">
 
+
+                                                <div class="inputs">  
                                                     <!-- Product name -->
                                                     <div class="inputField">
                                                         <label for="productName">Nom :</label><span class="required">           *</span>
@@ -241,20 +244,7 @@
                                                         <input name="prix" type="text" id="prix" name="prix" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
                                                     </div>
                                                     <div class="inputField">
-                                                        <label for="description">Description :</label><span class="required">           *</span>
-                                                        <input name="description" type="text"  id="description" name="description" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
-                                                    </div>
-                                                    <div class="inputField">
-                                                        <label for="designation">Désignation :</label><span class="required">           *</span>
-                                                        <input name="designation" type="text" id="designation" name="designation" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
-                                                    </div>
-                                                    <div class="inputField">
-                                                        <label for="unite">Quantité :</label><span class="required">           *</span>
-                                                        <input name="unite" type="text" id="unite" name="unite" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
-                                                    </div>
-
-                                                    <div class="inputField">
-                                                        <label for="marque">Marque de produit :</label><span class="required">           *</span>
+                                                        <label for="marque">Marque de produit :</label>
                                                         <select name="marque" id="marque">
                                                             <%
                                                                 MarqueService ms = new MarqueService();
@@ -262,46 +252,71 @@
                                                             %>
                                                             <option><%= m.getNom()%></option>
                                                             <%}%>
-                                                        </select>
+                                                        </select> <span class="required">*</span>
                                                     </div>
                                                     <div class="inputField">
-                                                        <label for="categorie">Catégorie de produit :</label><span class="required">           *</span>
+                                                        <label for="categorie">Catégorie de produit :</label>
                                                         <select name="categorie" id="categorie">
-                                                                <%
+                                                            <%
                                                                 CategorieService cs = new CategorieService();
                                                                 for (Categorie m : cs.findAll()) {
                                                             %>
                                                             <option><%= m.getNom()%></option>
                                                             <%}%>
-                                                        </select>
+                                                        </select><span class="required">*</span>
                                                     </div>
+                                                    <div class="inputField">
+                                                        <label for="description">Description :</label><span class="required">           *</span>
+                                                        <input name="description" type="text"  id="description" name="description" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
+                                                    </div>
+                                                    <div class="inputField">
+                                                        <label for="designation">Désignation :</label><span class="required">           *</span>
+                                                        <input name="designation" type="text" id="designation" name="designation" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
+                                                    </div>
+
                                                 </div>
-                                                <div class="btnForm">
-                                                    <input class="btn btn-space btn-primary" type="submit" value="Save">
+                                                <div class="inputField">
+                                                    <label for="unite">Quantité :</label><span class="required">           *</span>
+                                                    <input name="unite" type="text" id="unite" name="unite" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
                                                 </div>
+
+                                                <div class="inputField">
+                                                    <label for="unite">Image de Produit :</label><span class="required">*</span>
+                                                    <input name="image" type="file" id="image"  size="50px" required="" >
+                                                </div>
+                                                <label for="unite"></label>
+
                                             </div>
-                                        </form>
+                                            <div class="btnForm">
+                                                <input class="btn btn-space btn-primary" type="submit" value="Save">
+                                            </div>
+                                        </div>
                                     </div>
+
+
                                 </div>
                             </div>
-                        </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
         </div>
-        <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-        <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-        <script src="assets/libs/js/main-js.js"></script>
-        <script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
-        <script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
-        <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-        <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
-        <script src="assets/vendor/charts/c3charts/c3.min.js"></script>
-        <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-        <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
-        <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+    </div>
+</div>
+<script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+<script src="assets/libs/js/main-js.js"></script>
+<script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+<script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+<script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+<script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+<script src="assets/vendor/charts/c3charts/c3.min.js"></script>
+<script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+<script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
+<script src="assets/libs/js/dashboard-ecommerce.js"></script>
 
-    </body>
+</body>
 
 </html>

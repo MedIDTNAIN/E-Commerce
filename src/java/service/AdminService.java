@@ -7,6 +7,7 @@ package service;
 
 import dao.IDao;
 import entities.Admin;
+import entities.Client;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

@@ -41,7 +41,8 @@
                             <h2 class="form-title">Sign in</h2>
                             <form method="post" action="LoginServlet"  class="register-form" id="login-form">
                                 <div class="form-group">
-                                    <label for="email"><i class="zmdi zmdi-account material-icons-name"></i></label> <input type="text" name="email" id="username"
+                                    <label for="email"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                    <input type="email" name="email" id="username"
                                                                                                                             placeholder="Your Email" />
                                 </div>
                                 <div class="form-group">

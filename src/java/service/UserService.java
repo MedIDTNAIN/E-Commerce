@@ -179,5 +179,12 @@ public class UserService implements IDao<User> {
         }
         return user;
     }
-
+public User getByEmail(String email) {
+        User c = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        c = (User) session.createQuery("from User where email = ?").setParameter(0, email).uniqueResult();
+        session.getTransaction().commit();
+        return c;
+    }
 }
