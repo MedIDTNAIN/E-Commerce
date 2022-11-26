@@ -139,7 +139,5 @@ public class MarqueService implements IDao<Marque> {
         }
         return marque;
     }
-    
-    }
 
 }

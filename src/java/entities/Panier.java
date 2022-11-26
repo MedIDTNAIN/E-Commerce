@@ -37,7 +37,7 @@ public class Panier {
             }
         }
         if(flag){
-            Session s = HibernateUtil.getSession();
+            Session s = HibernateUtil.getSessionFactory().openSession();
             Produit pr= (Produit) s.get(Produit.class,id);
             LignePanier lp = new LignePanier(pr,qte);
             items.add(lp);
