@@ -79,13 +79,16 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");
         String passworde = request.getParameter("password");
         
-        UserService cl = new UserService();
-        User c = cl.getByEmail(email);
+//        UserService cl = new UserService();
+//        User c = cl.getByEmail(email);
 
+         ClientService cl = new ClientService();
+         Client c = (Client) cl.getByEmail(email);
+        
         if (c != null) {
             if (c.getPassword().equals(Encrypt(passworde))) {
                 HttpSession session = request.getSession();
-                session.setAttribute("email", email);
+                session.setAttribute("email", c);
                 c.setEtat(1);
                 cl.update(c);
                 response.sendRedirect("index1.jsp");
@@ -94,9 +97,8 @@ public class LoginServlet extends HttpServlet {
             }
         } else {
             response.sendRedirect("login.jsp?msg=Email introvable");
-
-//Source : www.exelib.net        }
-    }}
+        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
