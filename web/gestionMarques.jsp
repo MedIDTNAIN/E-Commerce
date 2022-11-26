@@ -1,7 +1,7 @@
 <%-- 
-    Document   : gestionProduits
-    Created on : Nov 20, 2022, 11:15:56 PM
-    Author     : MOHAMED
+    Document   : gestionMarques
+    Created on : 24 nov. 2022, 18:14:42
+    Author     : Mohamed Nabil
 --%>
 
 <%@page import="entities.Categorie"%>
@@ -14,7 +14,6 @@
 <html lang="fr">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Welcome home, Admin!</title>
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/libs/css/style.css">
@@ -24,7 +23,7 @@
     <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <title>Product</title>
+    <title>Brand</title>
 
 
     <body>
@@ -219,104 +218,52 @@
                                 </div>
                             </div>
                         </div>
-                        <form method="post" action="GestionProduit" enctype="multipart/form-data">
-
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                                    <div class="card">
-                                        <h5 class="card-header">Ajouter un produit</h5>
-
-                                        <div class="card-body">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                <div class="card">
+                                    <h5 class="card-header">Ajouter une marque</h5>
+                                    <div class="card-body">
+                                        <form method="post" action="GestionProduits">
                                             <div id="SuccessMessage"></div>
 
                                             <div class="wrapper">
 
+                                                <div class="inputs">
 
-
-                                                <div class="inputs">  
                                                     <!-- Product name -->
                                                     <div class="inputField">
-                                                        <label for="productName">Nom :</label><span class="required">           *</span>
-                                                        <input name="productName" type="text" id="productName" name="name" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
+                                                        <label for="brandName">Nom :</label><span class="required">           *</span>
+                                                        <input name="brandName" type="text" id="brandName" name="name" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
                                                     </div>
                                                     <div class="inputField">
-                                                        <label for="prix">Prix (DHs) :</label><span class="required">           *</span>
-                                                        <input name="prix" type="text" id="prix" name="prix" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
+                                                        <label for="brandName"></label>
                                                     </div>
-                                                    <div class="inputField">
-                                                        <label for="marque">Marque de produit :</label>
-                                                        <select name="marque" id="marque">
-                                                            <%
-                                                                MarqueService ms = new MarqueService();
-                                                                for (Marque m : ms.findAll()) {
-                                                            %>
-                                                            <option><%= m.getNom()%></option>
-                                                            <%}%>
-                                                        </select> <span class="required">*</span>
+                                                    <div class="btnForm">
+                                                        <input class="btn btn-space btn-primary" type="submit" value="Save">
                                                     </div>
-                                                    <div class="inputField">
-                                                        <label for="categorie">Catégorie de produit :</label>
-                                                        <select name="categorie" id="categorie">
-                                                            <%
-                                                                CategorieService cs = new CategorieService();
-                                                                for (Categorie m : cs.findAll()) {
-                                                            %>
-                                                            <option><%= m.getNom()%></option>
-                                                            <%}%>
-                                                        </select><span class="required">*</span>
-                                                    </div>
-                                                    <div class="inputField">
-                                                        <label for="description">Description :</label><span class="required">           *</span>
-                                                        <input name="description" type="text"  id="description" name="description" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
-                                                    </div>
-                                                    <div class="inputField">
-                                                        <label for="designation">Désignation :</label><span class="required">           *</span>
-                                                        <input name="designation" type="text" id="designation" name="designation" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
-                                                    </div>
-
                                                 </div>
-                                                <div class="inputField">
-                                                    <label for="unite">Quantité :</label><span class="required">           *</span>
-                                                    <input name="unite" type="text" id="unite" name="unite" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
-                                                </div>
-
-                                                <div class="inputField">
-                                                    <label for="unite">Image de Produit :</label><span class="required">*</span>
-                                                    <input name="image" type="file" id="image"  size="50px" required="" >
-                                                </div>
-                                                <label for="unite"></label>
-
-                                            </div>
-                                            <div class="btnForm">
-                                                <input class="btn btn-space btn-primary" type="submit" value="Save">
-                                            </div>
-                                        </div>
+                                        </form>
                                     </div>
-
-
                                 </div>
                             </div>
-                        </form>
-
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-<script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-<script src="assets/libs/js/main-js.js"></script>
-<script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
-<script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
-<script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-<script src="assets/vendor/charts/morris-bundle/morris.js"></script>
-<script src="assets/vendor/charts/c3charts/c3.min.js"></script>
-<script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-<script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
-<script src="assets/libs/js/dashboard-ecommerce.js"></script>
+        <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+        <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+        <script src="assets/libs/js/main-js.js"></script>
+        <script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+        <script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+        <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+        <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+        <script src="assets/vendor/charts/c3charts/c3.min.js"></script>
+        <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+        <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
+        <script src="assets/libs/js/dashboard-ecommerce.js"></script>
 
-</body>
+    </body>
 
 </html>

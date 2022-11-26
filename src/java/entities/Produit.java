@@ -29,6 +29,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "findByCategorie", query = "select p from Produit p where p.categorie like :c ")
 })
 public class Produit {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -79,8 +80,6 @@ public class Produit {
         return categorie;
     }
 
-    
-    
     public String getImage() {
         return image;
     }
@@ -88,8 +87,6 @@ public class Produit {
     public void setImage(String image) {
         this.image = image;
     }
-    
-    
 
     public int getId() {
         return id;
@@ -154,7 +151,5 @@ public class Produit {
     public void setMarque(Marque marque) {
         this.marque = marque;
     }
-    
-    
-    
+
 }
