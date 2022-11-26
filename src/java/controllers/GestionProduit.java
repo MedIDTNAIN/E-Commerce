@@ -103,25 +103,18 @@ public class GestionProduit extends HttpServlet {
         String designation = request.getParameter("designation");
         int unite = Integer.parseInt(request.getParameter("unite"));
 
-        Part part = request.getPart("image");
-        if (part != null) {
-            try {
-                Session session = null;
-                Blob image = null;
-                image = (Blob) session.createQuery("insert into Produit(image) values(?)");
-                InputStream is = part.getInputStream();
+        
 
                 ps.create(new Produit(nom, designation, prix, null, unite, description, null, null));
 
-            } catch (Exception e) {
-            }
+         
 
 //        File file = new File(request.getParameter("image"));
 //        FileInputStream input = new FileInputStream(file);
 //        byte[] bFile = new byte[(int) file.length()];
 //        
         }
-    }
+    
 
     /**
      * Returns a short description of the servlet.

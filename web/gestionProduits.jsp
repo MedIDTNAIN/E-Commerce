@@ -281,8 +281,8 @@
                                                 </div>
 
                                                 <div class="inputField">
-                                                    <label for="unite">Image de Produit :</label><span class="required">*</span>
-                                                    <input name="image" type="file" id="image"  size="50px" required="" >
+                                                    <label for="unite">Image de Produit :</label><span >*</span>
+                                                    <input name="image" type="file" id="image"  size="50px" >
                                                 </div>
                                                 <label for="unite"></label>
 
