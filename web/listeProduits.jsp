@@ -254,9 +254,6 @@
                                                         </td>
                                                 </tr>
                                                 <% }%>
-                                                <tr>
-                                                    <td colspan="9"><a href="./DeleteAllPrds" class="btn btn-outline-light float-right">Supprimer Tout</a></td>
-                                                </tr>
                                                 </tbody>
                                             </table>
                                             </form>
