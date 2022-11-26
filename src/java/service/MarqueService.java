@@ -138,6 +138,24 @@ public class MarqueService implements IDao<Marque> {
             session.close();
         }
         return marque;
+    
+     public List<Marque> findMarque() {
+        List<Marque> marques = null;
+        Session session = null;
+        Transaction tx = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            marques = session.getNamedQuery("findMarque").list();
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
+        return marques;
     }
 
 }

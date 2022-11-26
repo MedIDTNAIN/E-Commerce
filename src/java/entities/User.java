@@ -36,7 +36,7 @@ public class User implements Serializable {
     private int id;
     private String nom, prenom, tele, adresse;
     private String email, password;
-    private String role;
+    private int etat;
 
     public User() {
     }
@@ -63,6 +63,16 @@ public class User implements Serializable {
         this.adresse = adresse;
         this.email = email;
         this.password = password;
+    }
+
+    public User(String nom, String prenom, String tele, String adresse, String email, String password, int etat) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.tele = tele;
+        this.adresse = adresse;
+        this.email = email;
+        this.password = password;
+        this.etat = etat;
     }
 
     public User(int id, String nom, String prenom, String tele, String adresse, String email, String password) {
@@ -107,13 +117,15 @@ public class User implements Serializable {
         this.adresse = adresse;
     }
 
-    public String getRole() {
-        return role;
+    public int getEtat() {
+        return etat;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setEtat(int etat) {
+        this.etat = etat;
     }
+
+    
 
     public int getId() {
         return id;
