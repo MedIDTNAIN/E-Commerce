@@ -138,6 +138,7 @@ public class MarqueService implements IDao<Marque> {
             session.close();
         }
         return marque;
+    }
     
      public List<Marque> findMarque() {
         List<Marque> marques = null;

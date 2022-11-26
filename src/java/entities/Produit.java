@@ -36,7 +36,7 @@ public class Produit {
     private String nom;
     private String designation;
     private double prix;
-    private String image;
+    private Blob image;
     private int unite;
     private String description;
     @OneToMany(mappedBy = "produit", fetch = FetchType.EAGER)
@@ -49,7 +49,7 @@ public class Produit {
     public Produit() {
     }
 
-    public Produit(int id, String nom, String designation, double prix, String image, int unite, String description, Marque marque) {
+    public Produit(int id, String nom, String designation, double prix, Blob image, int unite, String description, Marque marque) {
         this.id = id;
         this.nom = nom;
         this.designation = designation;
@@ -60,7 +60,7 @@ public class Produit {
         this.marque = marque;
     }
 
-    public Produit(String nom, String designation, double prix, String image, int unite, String description, Marque marque, Categorie categorie) {
+    public Produit(String nom, String designation, double prix, Blob image, int unite, String description, Marque marque, Categorie categorie) {
         this.nom = nom;
         this.designation = designation;
         this.prix = prix;
@@ -80,11 +80,11 @@ public class Produit {
         return categorie;
     }
 
-    public String getImage() {
+    public Blob getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(Blob image) {
         this.image = image;
     }
 
