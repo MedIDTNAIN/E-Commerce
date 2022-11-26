@@ -229,6 +229,7 @@
                                                         <th class="border-0">#</th>
                                                         <th class="border-0">Image</th>
                                                         <th class="border-0">Nom de la marque</th>
+                                                        <th class="border-0"></th>
                                                     </tr>
                                                 </thead>
                                                 <% MarqueService ps = new MarqueService();
@@ -240,6 +241,9 @@
                                                             <div class="m-r-10"><img src="assets/images/product-pic.png" alt="user" class="rounded" width="45"></div>
                                                         </td>
                                                         <td><%= p.getNom()%></td>
+                                                        <td class="btnForm">
+                                                            <a class="btn btn-space btn-secondary" href="./DeleteMarque?id=<%= p.getId()%> ">Supprimer</a>
+                                                        </td>
                                                     </tr>
                                                     <% }%>
                                                     <tr>

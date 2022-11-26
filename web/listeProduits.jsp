@@ -243,21 +243,20 @@
                                                         <td><%= p.getId()%></td>
                                                         <td><input type="checkbox" name="id" value="ON"/></td>
                                                         <td>
-                                                            <div class="m-r-10"><img src="assets/images/product-pic.png" alt="user" class="rounded" width="45"></div>
+                                                            <div class="m-r-10"><%= p.getImage()%></div>
                                                         </td>
                                                         <td><%= p.getNom()%></td>
                                                         <td><%= p.getDescription()%></td>
                                                         <td><%= p.getUnite()%></td>
                                                         <td><%= p.getPrix()%> $</td>
                                                         <td class="btnForm">
-                                                            <input class="btn btn-space btn-secondary" type="submit" value="Supprimer">
+                                                            <a class="btn btn-space btn-secondary" href="./DeleteProduit?id=<%= p.getId()%> ">Supprimer</a>
                                                         </td>
                                                 </tr>
                                                 <% }%>
                                                 <tr>
-                                                    <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
+                                                    <td colspan="9"><a href="./DeleteAllPrds" class="btn btn-outline-light float-right">Supprimer Tout</a></td>
                                                 </tr>
-                                                <% //for(Produit p : ps.findByMarque()) {%>
                                                 </tbody>
                                             </table>
                                             </form>
