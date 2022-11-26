@@ -1,6 +1,6 @@
 <%-- 
-    Document   : gestionMarques
-    Created on : 24 nov. 2022, 18:14:42
+    Document   : gestionCategories
+    Created on : 24 nov. 2022, 21:51:21
     Author     : Mohamed Nabil
 --%>
 
@@ -205,13 +205,13 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="page-header">
-                                    <h2 class="pageheader-title">Gestion des marques </h2>
+                                    <h2 class="pageheader-title">Gestion des catégories </h2>
                                     <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                                     <div class="page-breadcrumb">
                                         <nav aria-label="breadcrumb">
                                             <ol class="breadcrumb">
                                                 <li class="breadcrumb-item"><a href="admin.jsp" class="breadcrumb-link">E-commerce</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Gestion des marques</li>
+                                                <li class="breadcrumb-item active" aria-current="page">Gestion des catégories</li>
                                             </ol>
                                         </nav>
                                     </div>
@@ -221,9 +221,9 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                                 <div class="card">
-                                    <h5 class="card-header">Ajouter une marque</h5>
+                                    <h5 class="card-header">Ajouter une catégorie</h5>
                                     <div class="card-body">
-                                        <form method="get" action="GestionMarque">
+                                        <form method="get" action="GestionCategorie">
                                             <div id="SuccessMessage"></div>
 
                                             <div class="wrapper">
@@ -233,7 +233,7 @@
                                                     <!-- Product name -->
                                                     <div class="inputField">
                                                         <label for="brandName">Nom :</label><span class="required">           *</span>
-                                                        <input name="brandName" type="text" id="brandName" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
+                                                        <input name="categoryName" type="text" id="categoryName" data-parsley-trigger="change" required="" placeholder="" autocomplete="off" class="form-control">
                                                     </div>
                                                     <div class="inputField">
                                                         <label for="brandName"></label>

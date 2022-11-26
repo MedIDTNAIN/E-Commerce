@@ -21,7 +21,8 @@ public class MarqueService implements IDao<Marque> {
 
     @Override
     public boolean create(Marque o) {
-        Session session = null;
+        if(o.getNom()!= null){
+            Session session = null;
         Transaction tx = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
@@ -37,6 +38,11 @@ public class MarqueService implements IDao<Marque> {
             session.close();
         }
         return false;
+        }
+        else {      
+        return true;
+        }
+        
     }
 
     @Override
@@ -114,6 +120,24 @@ public class MarqueService implements IDao<Marque> {
             session.close();
         }
         return marques;
+    }
+    public Marque findByNom(String n) {
+        Marque marque = null;
+        Session session = null;
+        Transaction tx = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            marque = (Marque) session.getNamedQuery("finByNom").setParameter("nom", n).uniqueResult();
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
+        return marque;
     }
 
 }

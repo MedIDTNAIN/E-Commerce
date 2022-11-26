@@ -129,7 +129,7 @@
                                         <span class="status"></span><span class="ml-2">Available</span>
                                     </div>
                                     <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Settings</a>
                                     <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
                                 </div>
                             </li>
@@ -184,10 +184,10 @@
                                                 <div id="submenu-1-3" class="collapse submenu" style="">
                                                     <ul class="nav flex-column">
                                                         <li class="nav-item">
-                                                            <a class="nav-link" href="ecommerce-product-single.html">Gestion des catégories</a>
+                                                            <a class="nav-link" href="gestionCategories.jsp">Gestion des catégories</a>
                                                         </li>
                                                         <li class="nav-item">
-                                                            <a class="nav-link" href="ecommerce-product.html">Liste des catégories</a>
+                                                            <a class="nav-link" href="listeCategories.jsp">Liste des catégories</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -211,7 +211,7 @@
                                     <div class="page-breadcrumb">
                                         <nav aria-label="breadcrumb">
                                             <ol class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">E-commerce</a></li>
+                                                <li class="breadcrumb-item"><a href="admin.jsp" class="breadcrumb-link">E-commerce</a></li>
                                                 <li class="breadcrumb-item active" aria-current="page">Gestion des produits</li>
                                             </ol>
                                         </nav>

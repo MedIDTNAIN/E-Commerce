@@ -7,10 +7,15 @@ package entities;
 
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import service.MarqueService;
 
 /**
  *
@@ -18,9 +23,14 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "marque")
+@NamedQueries({
+    
+    @NamedQuery(name = "findByNom" , query = "SELECT n from Marque n where n.nom like :n")
+})
 public class Marque {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nom;
     @OneToMany
@@ -30,13 +40,13 @@ public class Marque {
     }
 
     public Marque(String nom) {
-        this.nom = nom;
+        setNom(nom);
         this.produits = produits;
     }
 
     public Marque(int id, String nom) {
         this.id = id;
-        this.nom = nom;
+        setNom(nom);
         this.produits = produits;
     }
 
@@ -53,8 +63,18 @@ public class Marque {
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
-    }
+        MarqueService ms = new MarqueService();
+        if ((ms.findByNom(nom)) != null) {
+            
+                this.nom = null;
+            }
+        
+        else {
+                this.nom = nom;
+                 }    
+        }
+        
+    
 
     public List<Produit> getProduits() {
         return produits;
@@ -63,5 +83,11 @@ public class Marque {
     public void setProduits(List<Produit> produits) {
         this.produits = produits;
     }
+
+    @Override
+    public String toString() {
+        return "Marque{" + "nom=" + nom + '}';
+    }
+    
 
 }

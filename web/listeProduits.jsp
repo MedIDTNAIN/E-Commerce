@@ -126,7 +126,7 @@
                                         <span class="status"></span><span class="ml-2">Available</span>
                                     </div>
                                     <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Settings</a>
                                     <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
                                 </div>
                             </li>
@@ -181,10 +181,10 @@
                                                 <div id="submenu-1-3" class="collapse submenu" style="">
                                                     <ul class="nav flex-column">
                                                         <li class="nav-item">
-                                                            <a class="nav-link" href="ecommerce-product-single.html">Gestion des catégories</a>
+                                                            <a class="nav-link" href="gestionCategories.jsp">Gestion des catégories</a>
                                                         </li>
                                                         <li class="nav-item">
-                                                            <a class="nav-link" href="ecommerce-product.html">Liste des catégories</a>
+                                                            <a class="nav-link" href="listeCategories.jsp">Liste des catégories</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -208,7 +208,7 @@
                                     <div class="page-breadcrumb">
                                         <nav aria-label="breadcrumb">
                                             <ol class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">E-commerce</a></li>
+                                                <li class="breadcrumb-item"><a href="admin.jsp" class="breadcrumb-link">E-commerce</a></li>
                                                 <li class="breadcrumb-item active" aria-current="page">Liste des produits</li>
                                             </ol>
                                         </nav>
@@ -222,35 +222,45 @@
                                     <h5 class="card-header">Nos Produits :</h5>
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
-                                            <table class="table">
+                                            <form method="post" action="DeleteServlet">
+                                                <table class="table">
                                                 <thead class="bg-light">
                                                     <tr class="border-0">
                                                         <th class="border-0">#</th>
+                                                        <th class="border-0"></th>
                                                         <th class="border-0">Image</th>
                                                         <th class="border-0">Nom du produit</th>
+                                                        <th class="border-0">Description</th>
                                                         <th class="border-0">Quantité</th>
                                                         <th class="border-0">Prix</th>
+                                                        <th class="border-0"></th>
                                                     </tr>
                                                 </thead>
                                                 <% ProduitService ps = new ProduitService();
-                                                        for (Produit p : ps.findAll()) {%>
+                                                    for (Produit p : ps.findAll()) {%>
                                                 <tbody>
                                                     <tr>
                                                         <td><%= p.getId()%></td>
+                                                        <td><input type="checkbox" name="id" value="ON"/></td>
                                                         <td>
                                                             <div class="m-r-10"><img src="assets/images/product-pic.png" alt="user" class="rounded" width="45"></div>
                                                         </td>
                                                         <td><%= p.getNom()%></td>
+                                                        <td><%= p.getDescription()%></td>
                                                         <td><%= p.getUnite()%></td>
                                                         <td><%= p.getPrix()%> $</td>
-                                                    </tr>
-                                                    <% }%>
-                                                    <tr>
-                                                        <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
-                                                    </tr>
-                                                    <% //for(Produit p : ps.findByMarque()) {%>
+                                                        <td class="btnForm">
+                                                            <input class="btn btn-space btn-secondary" type="submit" value="Supprimer">
+                                                        </td>
+                                                </tr>
+                                                <% }%>
+                                                <tr>
+                                                    <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
+                                                </tr>
+                                                <% //for(Produit p : ps.findByMarque()) {%>
                                                 </tbody>
                                             </table>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
