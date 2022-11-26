@@ -31,19 +31,7 @@
 
                             <form method="post" action="RegistServlet" class="register-form"
                                   id="register-form">
-                                <div class="form-group">
-                                    <label for="name"></label>
-                                    <table border="0">
-                                        <tr>
-                                            <td>Type d'utilisateurs :</td>
-                                            
-                                            <td>Admin<input id="etd" type="radio" name="type" value="Admin" checked="checked" onclick="showAdmin();"/>
-                                                Client <input id="prof" type="radio" name="type" value="Client" checked="checked" onclick="showClient();"/></td>
-                                        </tr>
-                                       
-                                    </table>
-
-                                </div>
+                               
                                 <div class="form-group">
                                     <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label> <input type="text" name="fname" id="fname" placeholder="First Name" required=""/>
                                 </div>
