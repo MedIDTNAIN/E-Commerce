@@ -45,7 +45,7 @@
                             <img class="card-img-top" src="product-image/3-hat-png-image.png" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title"><%= p.getNom()%></h5>
-                                <h6 class="price"><%= p.getPrix()%></h6>
+                                <h6 class="price"><%= p.getPrix()%>$</h6>
                                 <h6 class="Category">Category= <%= p.getCategorie()%></h6>
                                 <h6 class="Category">Brand= <%= p.getMarque()%></h6>
                                 <h6 class="Category"><%= p.getDescription()%></h6>
