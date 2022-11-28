@@ -6,6 +6,8 @@
 package entities;
 
 import java.util.ArrayList;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import org.hibernate.Session;
 import util.HibernateUtil;
 
@@ -13,35 +15,20 @@ import util.HibernateUtil;
  *
  * @author LAASRI MOHAMED
  */
-public class Panier {
+@Entity
+@Table(name = "panier")
+public class Panier extends Produit {
     
-    private ArrayList<LignePanier> items = new ArrayList<LignePanier>();
-    
-    public ArrayList<LignePanier> getItems(){
-        return items;
+    private int qte;
+
+    public Panier() {
     }
-    
-    public void setItems(ArrayList<LignePanier> items){
-    
-        this.items=items;
-        
+
+    public int getQte() {
+        return qte;
     }
-    
-    public void addItem(int id,int qte){
-        boolean flag = true;
-        for(LignePanier lp:items){
-            if(lp.getProduit().getId()== id){
-                lp.setQte(lp.getQte()+qte);
-                flag =false;
-                break;
-            }
-        }
-        if(flag){
-            Session s = HibernateUtil.getSessionFactory().openSession();
-            Produit pr= (Produit) s.get(Produit.class,id);
-            LignePanier lp = new LignePanier(pr,qte);
-            items.add(lp);
-        }
+
+    public void setQte(int qte) {
+        this.qte = qte;
     }
-    
 }

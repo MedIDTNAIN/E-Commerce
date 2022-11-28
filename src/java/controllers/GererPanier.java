@@ -8,11 +8,13 @@ package controllers;
 import entities.Panier;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -20,6 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "GererPanier", urlPatterns = {"/GererPanier"})
 public class GererPanier extends HttpServlet {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,11 +36,6 @@ public class GererPanier extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -51,23 +50,39 @@ public class GererPanier extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action = request.getParameter("action");
-        int id = Integer.parseInt(request.getParameter("id"));
-        int qte = Integer.parseInt(request.getParameter("qte"));
-        Panier panier=null;
-        if(request.getSession().getAttribute("panier")!=null){
-            panier= (Panier)request.getSession().getAttribute("panier");
-        }else{
-        panier=new Panier();
+        response.setContentType("text/html;charset=UTF-8");
+        try(PrintWriter out = response.getWriter()) {
+            ArrayList<Panier> listePaniers = new ArrayList<>();
+            int id = Integer.parseInt(request.getParameter("id"));
+            Panier pn = new Panier();
+            pn.setId(id);
+            pn.setQte(1);
+            
+            HttpSession session = request.getSession();
+            ArrayList<Panier> liste_paniers = (ArrayList<Panier>) session.getAttribute("liste-paniers");
+            
+            if(liste_paniers == null) {
+                listePaniers.add(pn);
+                session.setAttribute("liste-paniers", liste_paniers);
+                out.println("session created and list added");
+            } else {
+                listePaniers = liste_paniers;
+                boolean isExisting = false;
+                for(Panier p : liste_paniers){
+                    if(p.getId() == id) {
+                        isExisting = true;
+                        out.println("The product is in the cart!");
+                    }
+                    if(!isExisting) {
+                        listePaniers.add(pn);
+                        out.println("Producct added!");
+                    }
+                }
+            }
+            for (Panier p : liste_paniers) {
+                out.println();
+            }
         }
-        
-        if(action.equals("ajouter")){
-            panier.addItem(id, qte);
-        }
-        
-        
-        request.getSession().setAttribute("panier", panier);
-        request.getRequestDispatcher("cart.jsp").forward(request, response);
     }
 
     /**

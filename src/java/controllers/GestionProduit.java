@@ -35,6 +35,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import org.hibernate.Session;
+import service.CategorieService;
+import service.MarqueService;
 import service.ProduitService;
 
 /**
@@ -46,6 +48,8 @@ import service.ProduitService;
 public class GestionProduit extends HttpServlet {
 
     ProduitService ps = new ProduitService();
+    MarqueService ms = new MarqueService();
+    CategorieService cs = new CategorieService();
 
     private String path;
     private String UPLOAD_DIRECTORY;
@@ -102,10 +106,10 @@ public class GestionProduit extends HttpServlet {
         String description = request.getParameter("description");
         String designation = request.getParameter("designation");
         int unite = Integer.parseInt(request.getParameter("unite"));
+        int id1 = Integer.parseInt(request.getParameter("marque"));
+        int id2 = Integer.parseInt(request.getParameter("categorie"));
 
-        
-
-                ps.create(new Produit(nom, designation, prix, null, unite, description, null, null));
+        ps.create(new Produit(nom, designation, prix, null, unite, description, ms.findById(id1), cs.findById(id2)));
 
          
 

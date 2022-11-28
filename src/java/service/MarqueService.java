@@ -121,6 +121,7 @@ public class MarqueService implements IDao<Marque> {
         }
         return marques;
     }
+    
     public Marque findByNom(String n) {
         Marque marque = null;
         Session session = null;
@@ -128,7 +129,7 @@ public class MarqueService implements IDao<Marque> {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            marque = (Marque) session.getNamedQuery("finByNom").setParameter("nom", n).uniqueResult();
+            marque = (Marque) session.getNamedQuery("findByNom").setParameter("nom", n).uniqueResult();
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) {

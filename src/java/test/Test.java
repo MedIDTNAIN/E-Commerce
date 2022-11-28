@@ -22,7 +22,7 @@ import util.HibernateUtil;
  */
 public class Test {
     public static void main(String[] args) {
-       // HibernateUtil.getSessionFactory().openSession();
+       HibernateUtil.getSessionFactory().openSession();
 //        MarqueService ms = new MarqueService();
 //        //CategorieService cs = new CategorieService();
 //        ProduitService ps = new ProduitService();

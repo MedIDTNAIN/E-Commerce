@@ -12,6 +12,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -24,6 +26,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "produit")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @NamedQueries({
     @NamedQuery(name = "findByMarque", query = "select p from Produit p where p.marque like :m "),
     @NamedQuery(name = "findByCategorie", query = "select p from Produit p where p.categorie like :c ")
@@ -36,7 +39,7 @@ public class Produit {
     private String nom;
     private String designation;
     private double prix;
-    private Blob image;
+    private String image;
     private int unite;
     private String description;
     @OneToMany(mappedBy = "produit", fetch = FetchType.EAGER)
@@ -49,7 +52,7 @@ public class Produit {
     public Produit() {
     }
 
-    public Produit(int id, String nom, String designation, double prix, Blob image, int unite, String description, Marque marque) {
+    public Produit(int id, String nom, String designation, double prix, String image, int unite, String description, Marque marque) {
         this.id = id;
         this.nom = nom;
         this.designation = designation;
@@ -60,7 +63,7 @@ public class Produit {
         this.marque = marque;
     }
 
-    public Produit(String nom, String designation, double prix, Blob image, int unite, String description, Marque marque, Categorie categorie) {
+    public Produit(String nom, String designation, double prix, String image, int unite, String description, Marque marque, Categorie categorie) {
         this.nom = nom;
         this.designation = designation;
         this.prix = prix;
@@ -80,11 +83,11 @@ public class Produit {
         return categorie;
     }
 
-    public Blob getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Blob image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
