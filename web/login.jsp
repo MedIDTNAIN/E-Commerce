@@ -54,6 +54,9 @@
                                            class="agree-term" /> <label for="remember-me"
                                            class="label-agree-term"><span><span></span></span>Remember me</label>
                                 </div>
+                                <div class="form-group">
+                                    <a href="Mpob.jsp">Mot de passe oblier</a>
+                                </div>
                                 <div class="form-group">                                    <%
                                     if (request.getParameter("msg") != null) {%>
                                     <td><h3><%= request.getParameter("msg")%></h3></td>

@@ -35,12 +35,27 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nom, prenom, tele, adresse;
-    private String email, password;
+    private String email, password , code;
     private int etat;
 
     public User() {
     }
 
+    public User(String email, String code) {
+        this.email = email;
+        this.code = code;
+    }
+
+    public User(String nom, String prenom, String tele, String adresse, String email, String password, String code) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.tele = tele;
+        this.adresse = adresse;
+        this.email = email;
+        this.password = password;
+        this.code = code;
+    }
+    
     public User(int id, String nom, String prenom, String email, String password) {
         this.id = id;
         this.nom = nom;
@@ -83,6 +98,12 @@ public class User implements Serializable {
         this.adresse = adresse;
         this.email = email;
         this.password = password;
+    }
+
+    public User(String nom, String email, String code) {
+        this.nom = nom;
+        this.email = email;
+        this.code = code;
     }
 
     public String getNom() {
@@ -149,6 +170,14 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
 }
