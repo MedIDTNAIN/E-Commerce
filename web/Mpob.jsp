@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/mpob.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
     </head>
     <body>
@@ -22,7 +23,7 @@
                         <td><input type="email" name="email"></td>
                          <td><input type="submit" value="Envoyer"></td>
                     </tr>
-                    <tr><td><h4><%= request.getParameter("msg")%></h4></td></tr>
+                    <tr><td><h4></h4></td></tr>
                 </table>
             </form>
         </fieldset>
