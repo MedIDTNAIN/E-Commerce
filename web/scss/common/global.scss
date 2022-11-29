@@ -29,6 +29,7 @@ body {
     line-height: 1.8;
     color: $black-color;
     background: #f8f8f8;
+    display: inline-block;
     font-weight: 400;
     font-family: Poppins;
 }
@@ -36,6 +37,7 @@ body {
     width: 900px;
     background: #fff;
     margin: 0 auto;
+    display: inline-block;
     @include box-shadow(0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05));
     @include border-radius(20px);
 }

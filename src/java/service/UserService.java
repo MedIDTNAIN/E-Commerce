@@ -115,8 +115,6 @@ public class UserService implements IDao<User> {
         return users;
     }
 
-    
-
     public boolean validate(String email, String password) {
         Session session = null;
         Transaction transaction = null;
@@ -142,7 +140,7 @@ public class UserService implements IDao<User> {
         }
         return false;
     }
-    
+
     public List<String> findProfils() {
         List<String> roles = null;
         Session session = null;
@@ -150,17 +148,18 @@ public class UserService implements IDao<User> {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            roles  =  session.getNamedQuery("findProfils").list();
+            roles = session.getNamedQuery("findProfils").list();
             tx.commit();
         } catch (HibernateException e) {
-            if(tx != null)
+            if (tx != null) {
                 tx.rollback();
+            }
         } finally {
             session.close();
         }
         return roles;
     }
-    
+
     public User findByEmail(String email) {
         User user = null;
         Session session = null;
@@ -168,7 +167,7 @@ public class UserService implements IDao<User> {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            user = (User) session.getNamedQuery("findByEmail").setParameter("u", email).uniqueResult();
+            user = (User) session.getNamedQuery("findByEmail").setParameter("email", email).uniqueResult();
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) {
@@ -179,7 +178,8 @@ public class UserService implements IDao<User> {
         }
         return user;
     }
-public User getByEmail(String email) {
+
+    public User getByEmail(String email) {
         User c = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();

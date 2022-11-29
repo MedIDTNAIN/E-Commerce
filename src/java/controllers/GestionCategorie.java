@@ -52,7 +52,7 @@ public class GestionCategorie extends HttpServlet {
         processRequest(request, response);
         String nom = request.getParameter("categoryName");
         cs.create(new Categorie(nom));
-        response.sendRedirect("gestionCategories.jsp");
+        response.sendRedirect("listeCategories.jsp");
     }
 
     /**

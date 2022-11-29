@@ -58,7 +58,7 @@ public class GestionMarque extends HttpServlet {
             response.sendRedirect("login.jsp");
         }else{
             ms.create(new Marque(nom));
-            response.sendRedirect("gestionMarques.jsp");
+            response.sendRedirect("listeMarques.jsp");
         }
 
     }

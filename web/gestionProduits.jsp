@@ -249,7 +249,7 @@
                                                                 MarqueService ms = new MarqueService();
                                                                 for (Marque m : ms.findAll()) {
                                                             %>
-                                                            <option><%= m.getId()%></option>
+                                                            <option><%= m.getNom()%></option>
                                                             <%}%>
                                                         </select> <span class="required">*</span>
                                                     </div>
@@ -260,7 +260,7 @@
                                                                 CategorieService cs = new CategorieService();
                                                                 for (Categorie m : cs.findAll()) {
                                                             %>
-                                                            <option><%= m.getId()%> </option>
+                                                            <option><%= m.getNom()%> </option>
                                                             <%}%>
                                                         </select><span class="required">*</span>
                                                     </div>
@@ -301,8 +301,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
 <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>

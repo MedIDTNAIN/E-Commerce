@@ -6257,6 +6257,7 @@ Vertical Timeline - by CodyHouse.co
 .form-group.row {
     margin-bottom: 0;
     padding: 12px 0;
+    display: inline-block;
 }
 
 .form-group.row label {

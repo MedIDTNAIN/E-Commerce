@@ -67,7 +67,7 @@ public class GestionProduit extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        response.sendRedirect("gestionProduits.jsp");
+        response.sendRedirect("listeProduits.jsp");
 
     }
 
@@ -106,10 +106,10 @@ public class GestionProduit extends HttpServlet {
         String description = request.getParameter("description");
         String designation = request.getParameter("designation");
         int unite = Integer.parseInt(request.getParameter("unite"));
-        int id1 = Integer.parseInt(request.getParameter("marque"));
-        int id2 = Integer.parseInt(request.getParameter("categorie"));
-
-        ps.create(new Produit(nom, designation, prix, null, unite, description, ms.findById(id1), cs.findById(id2)));
+        String id1 = request.getParameter("marque");
+        String id2 = request.getParameter("categorie");
+        
+        ps.create(new Produit(nom, designation, prix, null, unite, description, ms.findByNom(id1), cs.findByNom(id2)));
 
          
 

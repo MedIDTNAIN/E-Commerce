@@ -45,16 +45,16 @@
                                     <input type="email" name="email" placeholder="Your Email" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="password"><i class="zmdi zmdi-lock"></i></label> <input
-                                        type="password" name="password" id="password"
-                                        placeholder="Password" />
+                                    <label for="password"><i class="zmdi zmdi-lock"></i></label> 
+                                    <input type="password" name="password" id="password" placeholder="Password" />
                                 </div>
                                 <div class="form-group">
                                     <input type="checkbox" name="remember-me" id="remember-me"
                                            class="agree-term" /> <label for="remember-me"
                                            class="label-agree-term"><span><span></span></span>Remember me</label>
                                 </div>
-                                <div class="form-group">                                    <%
+                                <div class="form-group">                                    
+                                    <%
                                     if (request.getParameter("msg") != null) {%>
                                     <td><h3><%= request.getParameter("msg")%></h3></td>
                                     <%}%>

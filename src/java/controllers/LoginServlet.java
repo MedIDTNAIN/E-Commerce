@@ -34,6 +34,8 @@ public class LoginServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     UserService us = new UserService();
+    ClientService cs = new ClientService();
+    AdminService as = new AdminService();
     private static final String ALGORITHM = "md5";
     private static final String DIGEST_STRING = "HG58YZ3CR9";
     private static final String CHARSET_UTF_8 = "utf-8";
@@ -49,7 +51,7 @@ public class LoginServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     public static String Encrypt(String password) {
+    public static String Encrypt(String password) {
         try {
 
             // Static getInstance method is called with hashing MD5
@@ -73,30 +75,40 @@ public class LoginServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String email = request.getParameter("email");
         String passworde = request.getParameter("password");
-        
-//        UserService cl = new UserService();
-//        User c = cl.getByEmail(email);
+        String role = request.getParameter("role");
 
-         ClientService cl = new ClientService();
-         Client c = (Client) cl.getByEmail(email);
-        
-        if (c != null) {
-            if (c.getPassword().equals(Encrypt(passworde))) {
-                HttpSession session = request.getSession();
-                session.setAttribute("email", c);
-                c.setEtat(1);
-                cl.update(c);
-                response.sendRedirect("index1.jsp");
-            } else {
-                response.sendRedirect("login.jsp?msg=mot de passe incorrect");
+        User u = us.findByEmail(email);
+        if (u != null) {
+            if (email.equals("email")) {
+                if (role.equals("Client")) {
+                    if (u.getPassword().equals(Encrypt(passworde))) {
+                        HttpSession session = request.getSession();
+                        session.setAttribute("email-1", u);
+                        u.setEtat(1);
+                        us.update(u);
+                        response.sendRedirect("index1.jsp");
+                    } else {
+                        response.sendRedirect("login.jsp?msg=mot de passe incorrect");
+                    }
+                }
+                if (role.equals("Admin")) {
+                    if (u.getPassword().equals(Encrypt(passworde))) {
+                        HttpSession session = request.getSession();
+                        session.setAttribute("email-1", u);
+                        u.setEtat(1);
+                        us.update(u);
+                        response.sendRedirect("admin.jsp");
+                    } else {
+                        response.sendRedirect("login.jsp?msg=mot de passe incorrect");
+                    }
+                }
             }
-        } else {
-            response.sendRedirect("login.jsp?msg=Email introvable");
         }
     }
 
@@ -131,8 +143,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-               processRequest(request, response);
-
+        processRequest(request, response);
 
     }
 
@@ -145,9 +156,5 @@ public class LoginServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-   
-
-    
 
 }

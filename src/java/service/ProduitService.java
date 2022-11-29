@@ -173,4 +173,23 @@ public class ProduitService implements IDao<Produit> {
         return produits;
     }
     
+    public Produit findByNom(String n) {
+        Produit prod = null;
+        Session session = null;
+        Transaction tx = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            prod = (Produit) session.getNamedQuery("findByNom").setParameter("nom", n).uniqueResult();
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
+        return prod;
+    }
+    
 }

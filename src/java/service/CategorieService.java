@@ -123,7 +123,7 @@ public class CategorieService implements IDao<Categorie> {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            categorie = (Categorie) session.getNamedQuery("findByNom").setParameter("nom", n).uniqueResult();
+            categorie = (Categorie) session.getNamedQuery("findByNomo").setParameter("cc", n).uniqueResult();
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) {

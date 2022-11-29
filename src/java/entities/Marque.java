@@ -24,8 +24,7 @@ import service.MarqueService;
 @Entity
 @Table(name = "marque")
 @NamedQueries({
-    
-    @NamedQuery(name = "findByNom" , query = "select n from Marque n where n.nom like :n")
+    @NamedQuery(name = "findByNoms" , query = "select n from Marque n where n.nom like :nom")
 })
 public class Marque {
 
