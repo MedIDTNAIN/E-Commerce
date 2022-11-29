@@ -34,5 +34,10 @@ public class Test {
 //
 //        for(Marque p : ms.findAll()){
 //            System.out.println(p);
+//        
+        //MarqueService ms = new MarqueService();
+        //ms.create(new Marque("Test"));
+        //ms.create(new Marque("test"));
+        //ms.create(new Marque("Re"));
     }
 }
