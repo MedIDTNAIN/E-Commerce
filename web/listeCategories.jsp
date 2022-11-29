@@ -231,6 +231,7 @@
                                                         <th class="border-0">#</th>
                                                         <th class="border-0">Image</th>
                                                         <th class="border-0">Nom de la catégorie</th>
+                                                        <th class="border-0"></th>
                                                     </tr>
                                                 </thead>
                                                 <% CategorieService cs = new CategorieService();
@@ -242,11 +243,11 @@
                                                             <div class="m-r-10"><img src="assets/images/product-pic.png" alt="user" class="rounded" width="45"></div>
                                                         </td>
                                                         <td><%= c.getNom()%></td>
+                                                        <td class="btnForm">
+                                                            <a class="btn btn-space btn-secondary" href="./DeleteCategorie?id=<%= c.getId()%> ">Supprimer</a>
+                                                        </td>
                                                     </tr>
                                                     <% }%>
-                                                    <tr>
-                                                        <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
-                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>

@@ -76,6 +76,24 @@ public class ProduitService implements IDao<Produit> {
         }
         return false;
     }
+    
+    
+    public boolean deleteAll(List<Produit> o) {
+        Session session = null;
+        Transaction tx = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            session.delete(o);
+            tx.commit();
+            return true;
+        } catch (HibernateException e) {
+            tx.rollback();
+        } finally {
+            session.close();
+        }
+        return false;
+    }
 
     @Override
     public Produit findById(int id) {
@@ -154,4 +172,5 @@ public class ProduitService implements IDao<Produit> {
         }
         return produits;
     }
+    
 }

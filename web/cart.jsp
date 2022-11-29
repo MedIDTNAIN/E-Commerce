@@ -7,14 +7,13 @@
 
 
 
+<%@page import="entities.LignePanier"%>
+<%@page import="entities.Panier"%>
 <%@page import="entities.Produit"%>
 <%@page import="java.util.List"%>
 <%@page import="service.ProduitService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-    ProduitService pd = new ProduitService();
-    List<Produit> products = pd.findAll();
-%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -35,6 +34,17 @@
     <body>
         <%@include file="/includes/navbar.jsp"%>
         <div class="container">
+            <div class="d-flex py-3"><h3></h3><a class="mx-3 btn btn-primary" href="#">Check Out</a></div>
+            
+            <%
+                if(session.getAttribute("panier")== null){
+                %>
+                <h2>Votre panier est encore vide</h2>
+                <%
+                }else{
+                    Panier panier =(Panier)session.getAttribute("panier");
+            %>
+            
             <div class="d-flex py-3"><h3>Total Price: $452</h3><a class="mx-3 btn btn-primary" href="#">Check Out</a></div>
             <table class="table table-loght">
                 
@@ -49,20 +59,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%if (!products.isEmpty()) {
-                        for (Produit p : products) {%>
+                    
+                    <%
+                        for(LignePanier lp:panier.getItems()){
+                            Produit p=lp.getProduit();
+                    %>
                     <tr>
-                        <td><%= p.getNom()%></td>
-                        <td><%= p.getCategorie()%></td>
-                        <td><%= p.getMarque()%></td>
-                        <td><%= p.getPrix()%></td>
+                        <td><%=p.getNom()%></td>
+                        <td><%=p.getCategorie()%></td>
+                        <td><%=p.getMarque()%></td>
+                        <td><%=p.getPrix()%></td>
                         <td>
                     
                             <form action="" method="post" class="form-inline">
                                 <input type="hidden" name="id" value="1" class="form-inpute">
                                 <div class="form-group d-flex justify-content-between">
                                     <a class="btn btn-sm btn-decre" href=""><i class="fas fa-minus-square"></i></a>
-                                    <input type="text" name="quantity" class="form-control" value="1" readonly>
+                                    <input type="text" name="quantity" class="form-control" value="" readonly>
                                     <a class="btn btn-sm btn-incre" href=""><i class="fas fa-plus-square"></i></a>
 
                                 </div>
@@ -70,18 +83,16 @@
                         </td>
                         <td><a class="btn btn-sm btn-danger" href="">Remove</a></td>
                     </tr>
-                              <%}
-                    }
-
-                %>
+                   <%}%>          
                 </tbody>
                 
             </table>
-        
+        <%}%>
         
         </div>
         <%@include file="/includes/footer.jsp"%>
     </body>
+
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/libs/css/style.css">

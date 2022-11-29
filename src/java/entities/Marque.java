@@ -25,7 +25,7 @@ import service.MarqueService;
 @Table(name = "marque")
 @NamedQueries({
     
-    @NamedQuery(name = "findByNom" , query = "SELECT n from Marque n where n.nom like :n")
+    @NamedQuery(name = "findByNom" , query = "select n from Marque n where n.nom like :n")
 })
 public class Marque {
 
@@ -86,7 +86,7 @@ public class Marque {
 
     @Override
     public String toString() {
-        return "Marque{" + "nom=" + nom + '}';
+        return this.nom;
     }
     
 

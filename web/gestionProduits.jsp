@@ -14,7 +14,6 @@
 <html lang="fr">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Welcome home, Admin!</title>
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/libs/css/style.css">
@@ -250,7 +249,7 @@
                                                                 MarqueService ms = new MarqueService();
                                                                 for (Marque m : ms.findAll()) {
                                                             %>
-                                                            <option><%= m.getNom()%></option>
+                                                            <option><%= m.getId()%></option>
                                                             <%}%>
                                                         </select> <span class="required">*</span>
                                                     </div>
@@ -261,7 +260,7 @@
                                                                 CategorieService cs = new CategorieService();
                                                                 for (Categorie m : cs.findAll()) {
                                                             %>
-                                                            <option><%= m.getNom()%></option>
+                                                            <option><%= m.getId()%> </option>
                                                             <%}%>
                                                         </select><span class="required">*</span>
                                                     </div>
