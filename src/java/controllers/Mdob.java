@@ -38,7 +38,7 @@ public class Mdob extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
       String email = request.getParameter("email");
         ClientService cl = new ClientService();
-        Client c = (Client) cl.getByEmail(email);
+        Client c = (Client) cl.findByEmail(email);
         if (c != null) {
           
             double i = Math.random() * 100000;

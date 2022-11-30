@@ -14,7 +14,7 @@
     </head>
     <body>
         <fieldset>
-            <legend>Mot de passe oblie </legend>
+            <legend>Mot de passe oublié!</legend>
             <form action="Mdob">
                 <h3>Entrez votre E-mail pour envoyer un code sur votre e-mail</h3>
                 <table>

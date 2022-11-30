@@ -7,6 +7,7 @@ package entities;
 
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -16,7 +17,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "client")
-
+@NamedNativeQuery(name = "findByEmails", query = "select u from User u where u.email like :email")
 public class Client extends User {
 
     @OneToMany

@@ -12,7 +12,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Sign Up Form by Colorlib</title>
+        <title>Identifiez-vous!</title>
 
         <!-- Font Icon -->
         <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -42,7 +42,7 @@
                             <form method="post" action="LoginServlet"  class="register-form" id="login-form">
                                 <div class="form-group">
                                     <label for="email"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="email" name="email" placeholder="Your Email" >
+                                    <input type="email" name="email" placeholder="Your Email" />
                                 </div>
                                 <div class="form-group">
                                     <label for="password"><i class="zmdi zmdi-lock"></i></label> 
@@ -54,7 +54,7 @@
                                            class="label-agree-term"><span><span></span></span>Remember me</label>
                                 </div>
                                 <div class="form-group">
-                                    <a href="Mpob.jsp">Mot de passe oblier</a>
+                                    <a href="Mpob.jsp">Mot de passe oublié</a>
                                 </div>
                                 <div class="form-group">                                    <%
                                     if (request.getParameter("msg") != null) {%>

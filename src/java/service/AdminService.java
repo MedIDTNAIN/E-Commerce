@@ -7,8 +7,6 @@ package service;
 
 import dao.IDao;
 import entities.Admin;
-import entities.Client;
-import entities.User;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -116,13 +114,23 @@ public class AdminService implements IDao<Admin> {
         }
         return users;
     }
- public User getByEmail(String email) {
-        User c = null;
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        c = (User) session.createQuery("from User where email = ?").setParameter(0, email).uniqueResult();
-        session.getTransaction().commit();
-        return c;
-
-}
+    
+    public Admin findByEmail(String email) {
+        Admin admin = null;
+        Session session = null;
+        Transaction tx = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            admin = (Admin) session.getNamedQuery("findByEmails").setParameter("email", email).uniqueResult();
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
+        return admin;
+    }
 }

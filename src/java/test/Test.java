@@ -5,10 +5,12 @@
  */
 package test;
 
+import entities.Admin;
 import entities.Categorie;
 import entities.Client;
 import entities.Marque;
 import entities.Produit;
+import service.AdminService;
 import service.CategorieService;
 import service.ClientService;
 import service.MarqueService;
@@ -39,5 +41,7 @@ public class Test {
         //ms.create(new Marque("Test"));
         //ms.create(new Marque("test"));
         //ms.create(new Marque("Re"));
+//          AdminService as = new AdminService();
+//          as.create(new Admin("Ouchlif", "Nabil", "nabilouchlif@gmail.com", "admin"));
     }
 }

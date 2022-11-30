@@ -81,35 +81,8 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String email = request.getParameter("email");
         String passworde = request.getParameter("password");
-        String role = request.getParameter("role");
-
-        User u = us.findByEmail(email);
-        if (u != null) {
-            if (email.equals("email")) {
-                if (role.equals("Client")) {
-                    if (u.getPassword().equals(Encrypt(passworde))) {
-                        HttpSession session = request.getSession();
-                        session.setAttribute("email-1", u);
-                        u.setEtat(1);
-                        us.update(u);
-                        response.sendRedirect("index1.jsp");
-                    } else {
-                        response.sendRedirect("login.jsp?msg=mot de passe incorrect");
-                    }
-                }
-                if (role.equals("Admin")) {
-                    if (u.getPassword().equals(Encrypt(passworde))) {
-                        HttpSession session = request.getSession();
-                        session.setAttribute("email-1", u);
-                        u.setEtat(1);
-                        us.update(u);
-                        response.sendRedirect("admin.jsp");
-                    } else {
-                        response.sendRedirect("login.jsp?msg=mot de passe incorrect");
-                    }
-                }
-            }
-        }
+        
+        User u1 = us.findRoleByEmail(email);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -26,7 +26,6 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "produit")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @NamedQueries({
     @NamedQuery(name = "findByMarque", query = "select p from Produit p where p.marque like :m "),
     @NamedQuery(name = "findByCategorie", query = "select p from Produit p where p.categorie like :c "),

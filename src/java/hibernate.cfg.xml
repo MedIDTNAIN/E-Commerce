@@ -18,6 +18,5 @@
     <mapping class="entities.Marque"/>
     <mapping class="entities.User"/>
     <mapping class="entities.Commande"/>
-    <mapping class="entities.Panier"/>
   </session-factory>
 </hibernate-configuration>

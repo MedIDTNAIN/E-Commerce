@@ -15,8 +15,6 @@ import util.HibernateUtil;
  *
  * @author LAASRI MOHAMED
  */
-@Entity
-@Table(name = "panier")
 public class Panier extends Produit {
     
     private int qte;

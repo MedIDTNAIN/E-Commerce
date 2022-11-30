@@ -25,7 +25,8 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @NamedNativeQueries({
     @NamedNativeQuery(name = "findProfils", query = "select distinct(DType) from User"),
-    @NamedNativeQuery(name = "findByEmail", query = "select u from User u where u.email like :email")
+    @NamedNativeQuery(name = "findByEmail", query = "select u from User u where u.email like :email"),
+    @NamedNativeQuery(name = "findRoleByEmail", query = "select DType from User u where u.email like :email")
 })
 
 public class User implements Serializable {
