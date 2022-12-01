@@ -38,7 +38,6 @@
             <div class="card"></div>
             <div class="card-header my-3">All Products</div>
             <div class="row">
-                <form method="get" action="GererPanier">
                     <%    if (!products.isEmpty()) {
                             for (Produit p : products) {%>
                     <div class="col-md-3 my-3">
@@ -54,7 +53,6 @@
                                     <a href="./GererPanier?id=<%= p.getId()%>" class="btn btn-dark">Add to Cart</a>
                                     <a href="#" class="btn btn-primary">Buy Now</a>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -63,8 +61,6 @@
                     }
                 %>
             </div>
-            </form>
-        </div>
         <%@include file="/includes/footer.jsp"%>
     </body>
 

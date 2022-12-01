@@ -25,8 +25,8 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @NamedNativeQueries({
     @NamedNativeQuery(name = "findProfils", query = "select distinct(DType) from User"),
-    @NamedNativeQuery(name = "findByEmail", query = "select u from User u where u.email like :email"),
-    @NamedNativeQuery(name = "findRoleByEmail", query = "select DType from User u where u.email like :email")
+    @NamedNativeQuery(name = "findRoleByEmail", query = "select DType from User u where u.email like :email"),
+    @NamedNativeQuery(name = "findByPassword", query = "select u from User u where u.password like :password")
 })
 
 public class User implements Serializable {
@@ -41,21 +41,6 @@ public class User implements Serializable {
 
     public User() {
     }
-
-    public User(String email, String code) {
-        this.email = email;
-        this.code = code;
-    }
-
-    public User(String nom, String prenom, String tele, String adresse, String email, String password, String code) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.tele = tele;
-        this.adresse = adresse;
-        this.email = email;
-        this.password = password;
-        this.code = code;
-    }
     
     public User(int id, String nom, String prenom, String email, String password) {
         this.id = id;
@@ -64,8 +49,8 @@ public class User implements Serializable {
         this.email = email;
         this.password = password;
     }
-     public User( String nom, String prenom, String email, String password) {
-       
+    
+    public User(String nom, String prenom, String email, String password) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
@@ -81,16 +66,6 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public User(String nom, String prenom, String tele, String adresse, String email, String password, int etat) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.tele = tele;
-        this.adresse = adresse;
-        this.email = email;
-        this.password = password;
-        this.etat = etat;
-    }
-
     public User(int id, String nom, String prenom, String tele, String adresse, String email, String password) {
         this.id = id;
         this.nom = nom;
@@ -101,12 +76,7 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public User(String nom, String email, String code) {
-        this.nom = nom;
-        this.email = email;
-        this.code = code;
-    }
-
+   
     public String getNom() {
         return nom;
     }
@@ -181,4 +151,10 @@ public class User implements Serializable {
         this.code = code;
     }
 
+    @Override
+    public String toString() {
+        return this.nom; //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 }

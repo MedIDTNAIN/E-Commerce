@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import service.AdminService;
 import service.ClientService;
+import service.PassService;
 import service.UserService;
 
 /**
@@ -51,38 +52,10 @@ public class LoginServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    public static String Encrypt(String password) {
-        try {
-
-            // Static getInstance method is called with hashing MD5
-            MessageDigest md = MessageDigest.getInstance("MD5");
-
-            // digest() method is called to calculate message digest
-            // of an password digest() return array of byte
-            byte[] messageDigest = md.digest(password.getBytes());
-
-            // Convert byte array into signum representation
-            BigInteger no = new BigInteger(1, messageDigest);
-
-            // Convert message digest into hex value
-            String hashtext = no.toString(16);
-            while (hashtext.length() < 32) {
-                hashtext = "0" + hashtext;
-            }
-            return hashtext;
-        } // For specifying wrong message digest algorithms
-        catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String email = request.getParameter("email");
-        String passworde = request.getParameter("password");
-        
-        User u1 = us.findRoleByEmail(email);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -116,8 +89,38 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        User u = null;
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        u = us.findByEmail(email);
+        String role = us.findRoleByEmail(email);
+        String pass = u.getPassword();
 
+        if (role != null) {
+            if (role.equals("Client")) {
+                if (pass.equals(PassService.Encrypt(password))) {
+                    HttpSession session = request.getSession();
+                    session.setAttribute("email", u);
+                    u.setEtat(1);
+                    us.update(u);
+                    request.getRequestDispatcher("index1.jsp").include(request, response);
+                } else {
+                    response.sendRedirect("login.jsp?msg=mot de passe incorrect");
+                }
+            }
+            if (role.equals("Admin")) {
+                if (pass.equals(PassService.Encrypt(password))) {
+                    HttpSession session = request.getSession();
+                    session.setAttribute("email", u);
+                    u.setEtat(1);
+                    us.update(u);
+                    request.getRequestDispatcher("admin.jsp").include(request, response);
+                } else {
+                    response.sendRedirect("login.jsp?msg=mot de passe incorrect");
+                }
+            }
+        }
     }
 
     /**

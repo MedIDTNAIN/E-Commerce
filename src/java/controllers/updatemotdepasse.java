@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import service.ClientService;
+import service.PassService;
 
 /**
  *
@@ -23,6 +24,7 @@ import service.ClientService;
 @WebServlet(name = "updatemotdepasse", urlPatterns = {"/updatemotdepasse"})
 public class updatemotdepasse extends HttpServlet {
 
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -43,7 +45,7 @@ public class updatemotdepasse extends HttpServlet {
         if (password.equals(passwordcnf)) {
             HttpSession session = request.getSession();
             Client c = (Client) session.getAttribute("email");
-            c.setPassword(LoginServlet.Encrypt(password));
+            c.setPassword(PassService.Encrypt(password));
             cl.update(c);
             response.sendRedirect("login.jsp?email=" + c.getEmail());
         } else {

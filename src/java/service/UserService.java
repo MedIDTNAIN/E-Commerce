@@ -167,7 +167,7 @@ public class UserService implements IDao<User> {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            user = (User) session.getNamedQuery("findByEmail").setParameter("email", email).uniqueResult();
+            user = (User) session.createQuery("select u from User u where u.email = :email").setParameter("email", email).uniqueResult();
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) {
@@ -179,14 +179,14 @@ public class UserService implements IDao<User> {
         return user;
     }
     
-    public User findRoleByEmail(String email) {
+    public User findByPassword(String password) {
         User user = null;
         Session session = null;
         Transaction tx = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            user = (User) session.getNamedQuery("findRoleByEmail").setParameter("email", email).uniqueResult();
+            user = (User) session.getNamedQuery("findByPassword").setParameter("password", password).uniqueResult();
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) {
@@ -196,5 +196,24 @@ public class UserService implements IDao<User> {
             session.close();
         }
         return user;
+    }
+    
+    public String findRoleByEmail(String email) {
+        String role = null;
+        Session session = null;
+        Transaction tx = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            role = (String) session.getNamedQuery("findRoleByEmail").setParameter("email", email).uniqueResult();
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
+        return role;
     }
 }

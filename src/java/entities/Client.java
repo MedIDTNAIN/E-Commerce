@@ -31,10 +31,6 @@ public class Client extends User {
         super(nom, prenom, tele, adresse, email, password);
     }
 
-    public Client(String nom, String prenom, String tele, String adresse, String email, String password, int etat) {
-        super(nom, prenom, tele, adresse, email, password, etat);
-    }
-
     public Client(List<Commande> commande, String nom, String prenom, String tele, String adresse, String email, String password) {
         super(nom, prenom, tele, adresse, email, password);
         this.commande = commande;
