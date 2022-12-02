@@ -224,38 +224,38 @@
                                         <div class="table-responsive">
                                             <form method="post" action="DeleteServlet">
                                                 <table class="table">
-                                                <thead class="bg-light">
-                                                    <tr class="border-0">
-                                                        <th class="border-0">#</th>
-                                                        <th class="border-0"></th>
-                                                        <th class="border-0">Image</th>
-                                                        <th class="border-0">Nom du produit</th>
-                                                        <th class="border-0">Description</th>
-                                                        <th class="border-0">Quantité</th>
-                                                        <th class="border-0">Prix</th>
-                                                        <th class="border-0"></th>
-                                                    </tr>
-                                                </thead>
-                                                <% ProduitService ps = new ProduitService();
+                                                    <thead class="bg-light">
+                                                        <tr class="border-0">
+                                                            <th class="border-0">#</th>
+                                                            <th class="border-0"></th>
+                                                            <th class="border-0">Image</th>
+                                                            <th class="border-0">Nom du produit</th>
+                                                            <th class="border-0">Description</th>
+                                                            <th class="border-0">Quantité</th>
+                                                            <th class="border-0">Prix</th>
+                                                            <th class="border-0"></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <% ProduitService ps = new ProduitService();
                                                     for (Produit p : ps.findAll()) {%>
-                                                <tbody>
-                                                    <tr>
-                                                        <td><%= p.getId()%></td>
-                                                        <td><input type="checkbox" name="id" value="ON"/></td>
-                                                        <td>
-                                                            <div class="m-r-10"><%= p.getImage()%></div>
-                                                        </td>
-                                                        <td><%= p.getNom()%></td>
-                                                        <td><%= p.getDescription()%></td>
-                                                        <td><%= p.getUnite()%></td>
-                                                        <td><%= p.getPrix()%> $</td>
-                                                        <td class="btnForm">
-                                                            <a class="btn btn-space btn-secondary" href="./DeleteProduit?id=<%= p.getId()%> ">Supprimer</a>
-                                                        </td>
-                                                </tr>
-                                                <% }%>
-                                                </tbody>
-                                            </table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><%= p.getId()%></td>
+                                                            <td><input type="checkbox" name="id" value="ON"/></td>
+                                                            <td>
+                                                                <div class="m-r-10"><%= p.getImage()%></div>
+                                                            </td>
+                                                            <td><%= p.getNom()%></td>
+                                                            <td><%= p.getDescription()%></td>
+                                                            <td><%= p.getUnite()%></td>
+                                                            <td><%= p.getPrix()%> $</td>
+                                                            <td class="btnForm">
+                                                                <a onclick="confirmer()" class="btn btn-space btn-secondary" href="./DeleteProduit?id=<%= p.getId()%> ">Supprimer</a>
+                                                            </td>
+                                                        </tr>
+                                                        <% }%>
+                                                    </tbody>
+                                                </table>
                                             </form>
                                         </div>
                                     </div>
@@ -266,6 +266,7 @@
                 </div>
             </div>
         </div>
+        <script src="script/confirmDeletion.js" type="text/javascript"></script>
         <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
         <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
         <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>

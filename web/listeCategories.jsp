@@ -244,7 +244,7 @@
                                                         </td>
                                                         <td><%= c.getNom()%></td>
                                                         <td class="btnForm">
-                                                            <a class="btn btn-space btn-secondary" href="./DeleteCategorie?id=<%= c.getId()%> ">Supprimer</a>
+                                                            <a onclick="confirmer()" class="btn btn-space btn-secondary" href="./DeleteCategorie?id=<%= c.getId()%> ">Supprimer</a>
                                                         </td>
                                                     </tr>
                                                     <% }%>
@@ -259,6 +259,7 @@
                 </div>
             </div>
         </div>
+        <script src="script/confirmDeletion.js" type="text/javascript"></script>
         <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
         <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
         <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
