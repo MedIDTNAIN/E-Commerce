@@ -7,12 +7,16 @@
 
 
 
-<%@page import="entities.LignePanier"%>
 <%@page import="entities.Panier"%>
 <%@page import="entities.Produit"%>
 <%@page import="java.util.List"%>
 <%@page import="service.ProduitService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    ProduitService pd = new ProduitService();
+    List<Produit> products = pd.findAll();
+
+%>
 
 <!DOCTYPE html>
 <html>
@@ -23,6 +27,7 @@
                 vartical-align: middle;           
             }
             .btn-incre, .btn-decre{
+                
                 box-shadow: none;
                 font-size: 25px;
             }
@@ -35,15 +40,7 @@
         <%@include file="/includes/navbar.jsp"%>
         <div class="container">
             <div class="d-flex py-3"><h3></h3><a class="mx-3 btn btn-primary" href="#">Check Out</a></div>
-            
-            <%
-                if(session.getAttribute("panier")== null){
-                %>
-                <h2>Votre panier est encore vide</h2>
-                <%
-                }else{
-                    Panier panier =(Panier)session.getAttribute("panier");
-            %>
+
             
             <div class="d-flex py-3"><h3>Total Price: $452</h3><a class="mx-3 btn btn-primary" href="#">Check Out</a></div>
             <table class="table table-loght">
@@ -59,11 +56,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
-                    <%
-                        for(LignePanier lp:panier.getItems()){
-                            Produit p=lp.getProduit();
-                    %>
+                <%                    if (!products.isEmpty()) {
+                        for (Produit p : products) {%>
+                   
                     <tr>
                         <td><%=p.getNom()%></td>
                         <td><%=p.getCategorie()%></td>
