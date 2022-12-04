@@ -20,7 +20,7 @@ import javax.mail.internet.MimeMessage;
  */
 public class sendMail {
     static final String username = "idtnain.med@gmail.com";
-    static final String password = "rzfipmrwciejxfpf";
+    static final String password = "jeqtbztdwkbsohfx";
 
     public static void send(String s,String email) {
         Properties props = new Properties();
@@ -56,5 +56,4 @@ public class sendMail {
         }
     }
 
-//Source : www.exelib.net
 }

@@ -17,7 +17,6 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "client")
-@NamedNativeQuery(name = "findByEmails", query = "select u from User u where u.email like :email")
 public class Client extends User {
 
     @OneToMany

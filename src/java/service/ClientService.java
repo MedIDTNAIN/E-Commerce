@@ -122,7 +122,7 @@ public class ClientService implements IDao<Client> {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            client = (Client) session.getNamedQuery("findByEmails").setParameter("email", email).uniqueResult();
+            client = (Client) session.createQuery("select u from User u where u.email = :email").setParameter("email", email).uniqueResult();
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) {

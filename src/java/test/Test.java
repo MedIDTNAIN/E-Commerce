@@ -25,7 +25,7 @@ import util.HibernateUtil;
  */
 public class Test {
     public static void main(String[] args) {
-          HibernateUtil.getSessionFactory().openSession();
+//          HibernateUtil.getSessionFactory().openSession();
 //        MarqueService ms = new MarqueService();
 //        //CategorieService cs = new CategorieService();
 //        ProduitService ps = new ProduitService();
@@ -48,5 +48,7 @@ public class Test {
 ////         System.out.println(as.findRoleByEmail("laasrimohamed@gmail.com"));
 //          as.create(new Client("test", "test", "test", "test", "test@gmail.com", PassService.Encrypt("test")));
 //          System.out.println(as.findByEmail("test@gmail.com"));
+            ClientService cs = new ClientService();
+            System.out.println(cs.findByEmail("hihipa6252@covbase.com"));
     }
 }
