@@ -58,4 +58,30 @@ public class Commande implements Serializable {
         this.date = date;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Facture getFacture() {
+        return facture;
+    }
+
+    public void setFacture(Facture facture) {
+        this.facture = facture;
+    }
+
+    public List<LigneCommande> getLigneCommande() {
+        return ligneCommande;
+    }
+
+    public void setLigneCommande(List<LigneCommande> ligneCommande) {
+        this.ligneCommande = ligneCommande;
+    }
+    
+    
+
 }

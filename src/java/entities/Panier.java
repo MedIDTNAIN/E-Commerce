@@ -16,10 +16,23 @@ import util.HibernateUtil;
  * @author LAASRI MOHAMED
  */
 public class Panier extends Produit {
-    
+    private Produit produit;
     private int qte;
 
     public Panier() {
+    }
+
+    public Panier(Produit produit, int qte) {
+        this.produit = produit;
+        this.qte = qte;
+    }
+
+    public Produit getProduit() {
+        return produit;
+    }
+
+    public void setProduit(Produit produit) {
+        this.produit = produit;
     }
 
     public int getQte() {

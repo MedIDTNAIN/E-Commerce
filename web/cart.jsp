@@ -66,7 +66,7 @@
                         <td><%=p.getPrix()%></td>
                         <td>
                     
-                            <form action="" method="post" class="form-inline">
+                            <form action="AddCart" method="post" class="form-inline">
                                 <input type="hidden" name="id" value="1" class="form-inpute">
                                 <div class="form-group d-flex justify-content-between">
                                     <a class="btn btn-sm btn-decre" href=""><i class="fas fa-minus-square"></i></a>

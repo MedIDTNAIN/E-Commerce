@@ -75,6 +75,21 @@ public class Produit {
         this.categorie = categorie;
     }
 
+    public Produit(int id, String designation, double prix, String image) {
+        this.id = id;
+        this.image = image;
+        this.designation = designation;
+        this.prix = prix;
+    }
+
+    public Produit(String designation, double prix, String image) {
+        this.image = image;
+        this.designation = designation;
+        this.prix = prix;
+    }
+    
+    
+
     public void setCategorie(Categorie categorie) {
         this.categorie = categorie;
     }

@@ -18,7 +18,7 @@
                     <a class="nav-link" href="index1.jsp">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="cart.jsp">Cart</a>
+                    <a class="nav-link" href="catalog.jsp">Cart</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="orders.jsp">Orders</a>
