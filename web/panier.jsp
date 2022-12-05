@@ -21,7 +21,6 @@
     </head>
     <body>
         <div class="container">
-            
             <div class="d-flex py-3"><h3></h3><a class="mx-3 btn btn-primary" href="catalog.jsp">Back to your catalog</a></div>
             <div style="text-align: center;">
                 <h2 >Votre Panier</h2>
