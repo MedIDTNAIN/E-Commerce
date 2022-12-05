@@ -35,7 +35,7 @@
                 response.sendRedirect("login.jsp");
             }
         %>
-        <title>Welcome Mr <%= c.getNom()%> </title>
+        <title>Welcome Mr : </title>
         <%@include file="/includes/head.jsp"%>
 
     </head>
@@ -50,16 +50,17 @@
             }
         %>
         <div class="container">
-            
-                <div class="card-header my-3"></div>
-                <div class="card-header my-3"></div>
-                <div class="card"></div>
-                <div class="card-header my-3">All Products</div>
-                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for products..">
-                <ul id="myUL">
-                <div class="row">
-                    <%  if (!products.isEmpty()) {
+
+            <div class="card-header my-3"></div>
+            <div class="card-header my-3"></div>
+            <div class="card"></div>
+            <div class="card-header my-3">All Products</div>
+            <center><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for products.."></center>
+
+            <div class="row">
+                <%  if (!products.isEmpty()) {
                             for (Produit p : products) {%>
+                <ul id="myUL">
                     <div class="col-md-3 my-3">
                         <div class="card w-100" style="width: 18rem;">
                             <img class="card-img-top" src="product-image/3-hat-png-image.png" alt="Card image cap">
@@ -76,13 +77,14 @@
                             </div>
                         </div>
                     </div>
+                </ul>
 
-                    <%  }
-                        }
-                    %>
+                <%  }
+                    }
+                %>
 
-                </div>
-            </ul>
+            </div>
+
         </div>
         <%@include file="/includes/footer.jsp"%>
     </body>
