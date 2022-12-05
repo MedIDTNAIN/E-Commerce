@@ -4,6 +4,7 @@
     Author     : LAASRI MOHAMED
 --%>
 
+<%@page import="entities.Panier"%>
 <%@page import="entities.Client"%>
 <%@page import="entities.User"%>
 <%@page import="entities.Produit"%>
@@ -40,38 +41,48 @@
     </head>
     <body>
         <%@include file="/includes/navbar.jsp"%>
+        <%!int i = 0;%>
+        <%
+            HttpSession sessi = request.getSession();
+            List<Panier> paniers = (List<Panier>) sessio.getAttribute("listpr");
+            if (paniers != null) {
+                i = paniers.size();
+            }
+        %>
         <div class="container">
-            <div class="card-header my-3"></div>
-            <div class="card-header my-3"></div>
-            <div class="card"></div>
-            <div class="card-header my-3">All Products</div>
-            <div class="row">
+            
+                <div class="card-header my-3"></div>
+                <div class="card-header my-3"></div>
+                <div class="card"></div>
+                <div class="card-header my-3">All Products</div>
                 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for products..">
                 <ul id="myUL">
+                <div class="row">
                     <%  if (!products.isEmpty()) {
-                        for (Produit p : products) {%>
-                        <div class="col-md-3 my-3">
-                            <div class="card w-100" style="width: 18rem;">
-                                <img class="card-img-top" src="product-image/3-hat-png-image.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title"><a><%= p.getNom()%></a></h5>
-                                    <h6 class="price"><%= p.getPrix()%></h6>
-                                    <h6 class="Category">Category= <%= p.getCategorie()%></h6>
-                                    <h6 class="Category">Brand= <%= p.getMarque()%></h6>
-                                    <h6 class="Category"><%= p.getDescription()%></h6>
-                                    <div class="mt-3 d-flex justify-content-between">
-                                        <a id="cart" href=<%=url%> class="btn btn-dark">Add to Cart</a>
-                                        <a href="#" class="btn btn-primary">Buy Now</a>
-                                    </div>
+                            for (Produit p : products) {%>
+                    <div class="col-md-3 my-3">
+                        <div class="card w-100" style="width: 18rem;">
+                            <img class="card-img-top" src="product-image/3-hat-png-image.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title"><a><%= p.getNom()%></a></h5>
+                                <h6 class="price"><%= p.getPrix()%></h6>
+                                <h6 class="Category">Category= <%= p.getCategorie()%></h6>
+                                <h6 class="Category">Brand= <%= p.getMarque()%></h6>
+                                <h6 class="Category"><%= p.getDescription()%></h6>
+                                <div class="mt-3 d-flex justify-content-between">
+                                    <a id="cart" name="id" href="./cart?id=<%= p.getId()%>" class="btn btn-dark">Add to Cart</a>
+                                    <a href="#" class="btn btn-primary">Buy Now</a>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
                     <%  }
                         }
                     %>
-                </ul>
-            </div>
+
+                </div>
+            </ul>
         </div>
         <%@include file="/includes/footer.jsp"%>
     </body>
