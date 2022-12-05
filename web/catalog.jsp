@@ -13,11 +13,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
+        <%@include file="/includes/head.jsp"%>
         <link href="style/css.css" rel="stylesheet" type="text/css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Panier Simple</title>
     </head>
     <body>
+        
+        <div class="container">
         <fieldset>
             <legend>Liste des produits</legend>
             <form action="AjouterPanier" method="GET">
@@ -30,7 +34,7 @@
                     }
                 %>
                 <div style="text-align: right;">
-                    Panier :<a href="panier.jsp"> <img src="ressource/images/images.png" style="width: 25px; height: 25px;" /> <%= i%></a>
+                    Panier :<a href="panier.jsp"> <img src="product-image/men-suits.PNG" alt="user" class="rounded" width="50"> <%= i%></a>
                 </div>
                 <div>
                     <%
@@ -38,7 +42,7 @@
                         for (Produit pp : p.findAll()) {
                     %>
                     <figure>
-                        <img src=<%="ressource\\images\\" + pp.getImage()%>><br/>
+                        <img src="product-image/3-hat-png-image.png" alt="user" class="rounded" width="150"><br/>
                         <strong>Désignation:&nbsp; <%= pp.getDesignation()%></strong>&nbsp;&nbsp;
                         <strong>Prix :&nbsp;<%= pp.getPrix()%>&nbspDH</strong><br>    
 
@@ -48,5 +52,7 @@
                 </div>
             </form>
         </fieldset>
+                </div>
+        <%@include file="/includes/footer.jsp"%>
     </body>
 </html>
