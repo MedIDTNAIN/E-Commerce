@@ -59,7 +59,7 @@
                         <td><%= p.getQte()%></td>
                         <td><%= p.getProduit().getDesignation()%></td>
                         <td><%= p.getProduit().getPrix()%></td>
-                        <td><img src="product-image/3-hat-png-image.png" alt="user" class="rounded" width="45"></td>
+                        <td><img src="<%="ressource\\images\\" + p.getProduit().getImage()%>" alt="user" class="rounded" width="45"></td>
                     </tr>
                     <%}
                     }%>

@@ -35,7 +35,7 @@
                 response.sendRedirect("login.jsp");
             }
         %>
-        <title>Welcome Mr : </title>
+        <title>Welcome Mr <%= c.getNom()%>!</title>
         <%@include file="/includes/head.jsp"%>
 
     </head>

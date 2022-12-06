@@ -30,9 +30,9 @@
     </head>
     <body>
         <a class="navbar-brand" href="index1.jsp">E-Commerce <i class="fa fa-fw fa-shopping-cart"></i></a>
-        
+
         <div class="container">
-            
+
             <fieldset>
                 <div class="card-header my-3">Liste des produits</div>
                 <form action="AjouterPanier" method="GET">
@@ -54,7 +54,7 @@
                         %>
                         <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
                             <div class="card-body">
-                                <img src="product-image/3-hat-png-image.png" alt="user" class="rounded" width="150"><br/>
+                                <img src="<%="ressource\\images\\" + pp.getImage()%>" width="130"><br/>
                                 <h5 class="card-text"></h5>
                                 <h5 class="card-text">Désignation: <%= pp.getDesignation()%></h5>
                                 <h5 class="card-text">Prix : <%= pp.getPrix()%>&nbspDH</h5>   

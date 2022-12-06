@@ -1,9 +1,14 @@
 <%-- 
-    Document   : listeProduits
-    Created on : 23 nov. 2022, 19:26:04
+    Document   : listeClients
+    Created on : 6 déc. 2022, 03:39:19
     Author     : Mohamed Nabil
 --%>
 
+<%@page import="entities.Client"%>
+<%@page import="service.ClientService"%>
+<%@page import="entities.Categorie"%>
+<%@page import="service.CategorieService"%>
+<%@page import="entities.Marque"%>
 <%@page import="entities.Produit"%>
 <%@page import="service.ProduitService"%>
 <%@page import="service.MarqueService"%>
@@ -22,7 +27,7 @@
         <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
         <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
         <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-        <title>Liste des produits!</title>
+        <title>Liste des Clients!</title>
     </head>
     <body>
         <div class="dashboard-main-wrapper">
@@ -213,13 +218,13 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="page-header">
-                                    <h2 class="pageheader-title">Liste des produits </h2>
+                                    <h2 class="pageheader-title">Liste des clients </h2>
                                     <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                                     <div class="page-breadcrumb">
                                         <nav aria-label="breadcrumb">
                                             <ol class="breadcrumb">
                                                 <li class="breadcrumb-item"><a href="admin.jsp" class="breadcrumb-link">E-commerce</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Liste des produits</li>
+                                                <li class="breadcrumb-item active" aria-current="page">Liste des clients</li>
                                             </ol>
                                         </nav>
                                     </div>
@@ -229,42 +234,34 @@
                         <div class="row">
                             <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
                                 <div class="card">
-                                    <h5 class="card-header">Nos Produits :</h5>
+                                    <h5 class="card-header">Clients disponibles :</h5>
                                     <div class="card-body p-0">
-                                        <div class="table-responsive" id="result">
-                                            <form method="post" action="DeleteServlet">
-                                                <table class="table">
-                                                    <thead class="bg-light">
-                                                        <tr class="border-0">
-                                                            <th class="border-0">#</th>
-                                                            <th class="border-0">Image</th>
-                                                            <th class="border-0">Nom du produit</th>
-                                                            <th class="border-0">Description</th>
-                                                            <th class="border-0">Quantité</th>
-                                                            <th class="border-0">Prix/pièce</th>
-                                                            <th class="border-0"></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <% ProduitService ps = new ProduitService();
-                                                    for (Produit p : ps.findAll()) {%>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><%= p.getId()%></td>
-                                                            <td>
-                                                                <img src="<%="ressource\\images\\" + p.getImage()%>" alt="<%= p.getNom()%>" width="60"/>
-                                                            </td>
-                                                            <td><%= p.getNom()%></td>
-                                                            <td><%= p.getDescription()%></td>
-                                                            <td><%= p.getUnite()%></td>
-                                                            <td><%= p.getPrix()%> $</td>
-                                                            <td class="btnForm">
-                                                                <a onclick="confirmer()" class="btn btn-space btn-secondary" href="./DeleteProduit?id=<%= p.getId()%> ">Supprimer</a>
-                                                            </td>
-                                                        </tr>
-                                                        <% }%>
-                                                    </tbody>
-                                                </table>
-                                            </form>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                        <th class="border-0">#</th>
+                                                        <th class="border-0">Nom du client</th>
+                                                        <th class="border-0">E-mail</th>
+                                                        <th class="border-0">Etat</th>
+                                                        <th class="border-0"></th>
+                                                    </tr>
+                                                </thead>
+                                                <% ClientService cs = new ClientService();
+                                                    for (Client c : cs.findAll()) {%>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><%= c.getId()%></td>
+                                                        <td><%= c.getNom()%></td>
+                                                        <td><%= c.getEmail()%></td>
+                                                        <td><span class="badge-dot badge-success mr-1"></span><%= c.getEtat()%></td>
+                                                        <td class="btnForm">
+                                                            <a onclick="confirmer()" class="btn btn-space btn-secondary" href="./DeleteCategorie?id=<%= c.getId()%> ">Supprimer</a>
+                                                        </td>
+                                                    </tr>
+                                                    <% }%>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
@@ -289,3 +286,4 @@
         <script src="assets/libs/js/dashboard-ecommerce.js"></script>
     </body>
 </html>
+
