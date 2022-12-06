@@ -6,13 +6,6 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto navbar-right-top">
-                <li class="nav-item">
-                    <div id="custom-search" class="top-search-bar">
-                        <input class="form-control-sm" type="text" placeholder="Search..">
-                    </div>
-                </li>
-            </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="index1.jsp">Home <span class="sr-only">(current)</span></a>

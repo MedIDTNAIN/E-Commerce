@@ -127,7 +127,7 @@
                                     </div>
                                     <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
                                     <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Settings</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                                    <a class="dropdown-item" href="login.jsp"><i class="fas fa-power-off mr-2"></i>Logout</a>
                                 </div>
                             </li>
                         </ul>
@@ -221,18 +221,17 @@
                                 <div class="card">
                                     <h5 class="card-header">Nos Produits :</h5>
                                     <div class="card-body p-0">
-                                        <div class="table-responsive">
+                                        <div class="table-responsive" id="result">
                                             <form method="post" action="DeleteServlet">
                                                 <table class="table">
                                                     <thead class="bg-light">
                                                         <tr class="border-0">
                                                             <th class="border-0">#</th>
-                                                            <th class="border-0"></th>
                                                             <th class="border-0">Image</th>
                                                             <th class="border-0">Nom du produit</th>
                                                             <th class="border-0">Description</th>
                                                             <th class="border-0">Quantité</th>
-                                                            <th class="border-0">Prix</th>
+                                                            <th class="border-0">Prix/pièce</th>
                                                             <th class="border-0"></th>
                                                         </tr>
                                                     </thead>
@@ -241,9 +240,8 @@
                                                     <tbody>
                                                         <tr>
                                                             <td><%= p.getId()%></td>
-                                                            <td><input type="checkbox" name="id" value="ON"/></td>
                                                             <td>
-                                                                <div class="m-r-10"><%= p.getImage()%></div>
+                                                                <img src="<%="ressource\\images\\" + p.getImage()%>" alt="<%= p.getNom()%>" width="60"/>
                                                             </td>
                                                             <td><%= p.getNom()%></td>
                                                             <td><%= p.getDescription()%></td>

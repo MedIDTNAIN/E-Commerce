@@ -87,8 +87,12 @@ public class Produit {
         this.designation = designation;
         this.prix = prix;
     }
-    
-    
+
+    public Produit(String nom, String designation, String image) {
+        this.nom = nom;
+        this.designation = designation;
+        this.image = image;
+    }
 
     public void setCategorie(Categorie categorie) {
         this.categorie = categorie;

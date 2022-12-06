@@ -129,7 +129,7 @@
                                     </div>
                                     <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
                                     <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Settings</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                                    <a class="dropdown-item" href="login.jsp"><i class="fas fa-power-off mr-2"></i>Logout</a>
                                 </div>
                             </li>
                         </ul>
@@ -205,7 +205,7 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="page-header">
-                                    <h2 class="pageheader-title">Gestion des produits </h2>
+                                    <h2 class="pageheader-title">Gestion des produits</h2>
                                     <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                                     <div class="page-breadcrumb">
                                         <nav aria-label="breadcrumb">
@@ -280,8 +280,8 @@
                                                 </div>
 
                                                 <div class="inputField">
-                                                    <label for="unite">Image de Produit :</label><span >*</span>
-                                                    <input name="image" type="file" id="image"  size="50px" >
+                                                    <label for="unite">Image de Produit :</label>
+                                                    <input name="file" type="file" id="image"  size="50px" ><span>*</span>
                                                 </div>
                                                 <label for="unite"></label>
 

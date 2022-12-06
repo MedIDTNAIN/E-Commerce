@@ -55,9 +55,9 @@
                         <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
                             <div class="card-body">
                                 <img src="product-image/3-hat-png-image.png" alt="user" class="rounded" width="150"><br/>
-                                <h6 class="card-text"></h6>
-                                <h6 class="card-text">Désignation: <%= pp.getDesignation()%></h6>
-                                <h6 class="card-text">Prix : <%= pp.getPrix()%>&nbspDH</h6>   
+                                <h5 class="card-text"></h5>
+                                <h5 class="card-text">Désignation: <%= pp.getDesignation()%></h5>
+                                <h5 class="card-text">Prix : <%= pp.getPrix()%>&nbspDH</h5>   
 
                                 <a class="mx-3 btn btn-primary" name="id" href="./cart?id=<%= pp.getId()%>" >Ajouter</a>
                             </div>
